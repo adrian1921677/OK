@@ -1,15 +1,13 @@
-import Image from "next/image";
-import { ContactPanel } from "@/components/contact";
-import { serviceIcons } from "@/components/icons";
+import Link from "next/link";
+import { Picture } from "@/components/picture";
 import { PageHero } from "@/components/page-hero";
-import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
-import { services } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Leistungen: Fenster-, Treppenhaus- und Büroreinigung",
+  title: "Leistungen",
   description:
-    "Fensterreinigung, Treppenhausreinigung und Büroreinigung in Großräschen und im Lausitzer Seenland. Gründlich, zuverlässig und flexibel – Angebot innerhalb von 24 Stunden.",
+    "Fensterreinigung, Treppenhausreinigung und Büroreinigung der Gebäudereinigung Kienle in Großräschen und im Lausitzer Seenland.",
   path: "/leistungen",
 });
 
@@ -17,20 +15,16 @@ export default function LeistungenPage() {
   return (
     <>
       <PageHero
-        breadcrumb="Leistungen"
-        title={"Wir reinigen mit System – gründlich, zuverlässig, flexibel."}
-        lead="Ob Büro, Praxis oder Treppenhaus – wir sorgen für saubere Räume, in denen sich alle wohlfühlen."
+        label="Leistungen"
+        title="Reinigung mit ruhiger Systematik."
+        lead="Drei klar umrissene Leistungen für Hausverwaltungen, Wohnungsgesellschaften sowie Büros und Praxen."
       />
 
-      {/* Sprungmarken */}
-      <nav aria-label="Leistungen im Überblick" className="pb-10 lg:pb-14">
-        <ul className="container-site flex flex-wrap gap-2">
+      <nav aria-label="Leistungen im Überblick" className="border-b border-line">
+        <ul className="container-site flex flex-wrap gap-x-8 gap-y-3 py-6 text-[0.9375rem]">
           {services.map((service) => (
             <li key={service.slug}>
-              <a
-                href={`#${service.slug}`}
-                className="inline-flex min-h-11 items-center rounded-full bg-mist px-5 text-[0.9375rem] font-medium text-ink transition-colors hover:bg-ink hover:text-white"
-              >
+              <a href={`#${service.slug}`} className="text-link">
                 {service.title}
               </a>
             </li>
@@ -38,72 +32,73 @@ export default function LeistungenPage() {
         </ul>
       </nav>
 
-      {services.map((service, index) => {
-        const reversed = index % 2 === 1;
-        const Icon = serviceIcons[service.icon];
-        return (
-          <section
-            key={service.slug}
-            id={service.slug}
-            aria-labelledby={`${service.slug}-titel`}
-            className="pb-14 lg:pb-20"
-          >
-            <div className="container-site grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
-              <div data-reveal className={`relative ${reversed ? "lg:order-2" : ""}`}>
-                <div
-                  aria-hidden="true"
-                  className={`absolute -bottom-3 h-2/3 w-2/3 rounded-[1.5rem] bg-glass ${reversed ? "-right-3" : "-left-3"}`}
+      {services.map((service, index) => (
+        <section
+          key={service.slug}
+          id={service.slug}
+          aria-labelledby={`${service.slug}-titel`}
+          className="border-b border-line"
+        >
+          <div className="container-site grid-12 items-start gap-y-10 py-16 sm:py-20 lg:py-28">
+            <div className={`col-span-12 lg:col-span-5 ${index % 2 === 1 ? "lg:col-start-8 lg:order-2" : ""}`}>
+              <div className="media aspect-[4/3]" data-reveal-image>
+                <Picture
+                  src={service.image}
+                  alt={service.imageAlt}
+                  width={1400}
+                  height={1050}
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="absolute inset-0 block h-full w-full"
+                  priority={index === 0}
                 />
-                <div className="media aspect-[3/2]">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    placeholder="blur"
-                    loading={index === 0 ? "eager" : "lazy"}
-                    sizes="(min-width: 1024px) 33rem, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <span
-                  aria-hidden="true"
-                  className={`icon-tile icon-tile-solid absolute -top-4 h-12 w-12 shadow-lg shadow-ink/10 ${reversed ? "right-6" : "left-6"}`}
-                >
-                  <Icon className="h-5 w-5" />
-                </span>
-              </div>
-
-              <div data-reveal style={{ "--reveal-delay": "90ms" } as React.CSSProperties}>
-                <h2 id={`${service.slug}-titel`} className="h-section">
-                  {service.title}
-                </h2>
-                <p className="lead mt-3 font-medium text-ink">{service.summary}</p>
-                {service.description.map((paragraph) => (
-                  <p key={paragraph} className="mt-4 max-w-[34rem]">
-                    {paragraph}
-                  </p>
-                ))}
-                <ul className="list-dots mt-6 space-y-2 font-medium text-ink">
-                  {service.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-                <Placeholder className="mt-7 max-w-[34rem]">
-                  Genauer Leistungsumfang der {service.title} (z.&nbsp;B. Intervalle, Zusatzleistungen, Objektarten) ist
-                  noch von Herrn Kienle zu bestätigen.
-                </Placeholder>
               </div>
             </div>
-          </section>
-        );
-      })}
 
-      <ContactPanel
-        title="Welche Reinigung brauchen Sie?"
-        text={
-          "Beschreiben Sie uns kurz Ihr Objekt. Sie erhalten innerhalb von 24 Stunden ein kostenloses, unverbindliches Angebot."
-        }
-      />
+            <div
+              className={`col-span-12 lg:col-span-6 ${index % 2 === 1 ? "lg:col-start-1 lg:order-1" : "lg:col-start-7"}`}
+              data-reveal
+            >
+              <p className="label">{service.number}</p>
+              <h2 id={`${service.slug}-titel`} className="h-section mt-4">
+                {service.title}
+              </h2>
+              <p className="mt-5 max-w-[34rem] text-muted">{service.summary}</p>
+              {service.description.map((paragraph) => (
+                <p key={paragraph} className="mt-4 max-w-[34rem] text-muted">
+                  {paragraph}
+                </p>
+              ))}
+              <ul className="mt-8 space-y-3 border-t border-line pt-6 text-[1.0625rem] text-ink">
+                {service.points.map((point) => (
+                  <li key={point} className="border-b border-line py-3 last:border-b-0">
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section className="border-b border-line">
+        <div className="container-site grid-12 py-16 sm:py-20 lg:py-28">
+          <div className="col-span-12 lg:col-span-7" data-reveal>
+            <h2 className="h-section max-w-[16ch]">Passende Reinigung für Ihr Objekt.</h2>
+            <p className="lead mt-5 max-w-[32rem]">
+              Beschreiben Sie kurz Objekt und Bedarf. Wir melden uns mit einem klaren, unverbindlichen Angebot.
+            </p>
+            <p className="mt-8">
+              <Link href="/kontakt" className="text-link-accent">
+                Angebot anfragen →
+              </Link>
+              <span className="mx-4 text-line">|</span>
+              <a href={site.phone.href} className="text-link">
+                {site.phone.display}
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

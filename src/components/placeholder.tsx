@@ -1,18 +1,15 @@
-import type { ReactNode } from "react";
 import { site } from "@/lib/site";
 
-/**
- * Sichtbar gekennzeichneter Platzhalter für Inhalte, die noch nicht bestätigt
- * oder geliefert sind. Verschwindet, sobald `site.showPlaceholders` false ist.
- */
-export function Placeholder({ children, className = "" }: { children: ReactNode; className?: string }) {
+/** Sichtbarer Hinweis für noch offene Inhalte – ohne Signaloptik. */
+export function Placeholder({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   if (!site.showPlaceholders) return null;
+
   return (
-    <div
-      role="note"
-      className={`rounded-xl border border-dashed border-amber-600 bg-amber-50 px-4 py-3 text-[0.9375rem] text-amber-950 ${className}`}
+    <aside
+      className={`border border-dashed border-line px-4 py-3 text-[0.875rem] leading-relaxed text-muted ${className}`}
     >
-      <strong className="font-bold">Platzhalter:</strong> {children}
-    </div>
+      <p className="label mb-2">Platzhalter</p>
+      <div>{children}</div>
+    </aside>
   );
 }

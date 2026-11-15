@@ -1,6 +1,4 @@
-import type { CSSProperties } from "react";
-import { ContactTiles } from "@/components/contact";
-import { InfoList } from "@/components/info-list";
+import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
 import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
@@ -9,70 +7,77 @@ import { site } from "@/lib/site";
 export const metadata = pageMetadata({
   title: "Kontakt",
   description:
-    "Gebäudereinigung Kienle in Großräschen erreichen: Telefon 0172 2664403, WhatsApp oder E-Mail. Kostenloses, unverbindliches Angebot innerhalb von 24 Stunden.",
+    "Kontakt zur Gebäudereinigung Kienle in Großräschen: Telefon 0172 2664403, E-Mail oliver.kienle@yahoo.de, Seestraße 7.",
   path: "/kontakt",
 });
 
-const questions = [
-  "Welche Leistung benötigen Sie: Fenster-, Treppenhaus- oder Büroreinigung?",
-  "Wo befindet sich das Objekt?",
-  "Wie groß ist es ungefähr, zum Beispiel Anzahl der Etagen, Räume oder Fenster?",
-  "Soll einmalig oder regelmäßig gereinigt werden?",
+const hints = [
+  "Welche Leistung benötigen Sie: Fenster, Treppenhaus oder Büro.",
+  "Wo liegt das Objekt.",
+  "Ungefähre Größe: Etagen, Räume oder Fensterflächen.",
+  "Einmalig oder regelmäßig.",
 ];
 
 export default function KontaktPage() {
   return (
     <>
       <PageHero
-        breadcrumb="Kontakt"
-        title="Sprechen Sie uns direkt an"
-        lead={
-          "Telefon, WhatsApp oder E-Mail – Sie erhalten innerhalb von 24 Stunden ein kostenloses, unverbindliches Angebot."
-        }
+        label="Kontakt"
+        title="Sprechen wir über Ihr Objekt."
+        lead="Telefon, E-Mail oder Formular – wir melden uns mit einem klaren, unverbindlichen Angebot."
       />
 
-      <section className="pb-14 lg:pb-20">
-        <div className="container-site">
-          <h2 className="sr-only">Kontaktwege</h2>
-          <ContactTiles />
-        </div>
-      </section>
+      <section className="border-b border-line">
+        <div className="container-site grid-12 gap-y-14 py-16 sm:py-20 lg:py-28">
+          <div className="col-span-12 lg:col-span-5" data-reveal>
+            <dl className="space-y-8">
+              <div>
+                <dt className="label">Telefon</dt>
+                <dd className="mt-2 font-serif text-2xl font-light">
+                  <a href={site.phone.href} className="text-link">
+                    {site.phone.display}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="label">E-Mail</dt>
+                <dd className="mt-2">
+                  <a href={site.email.href} className="text-link break-all">
+                    {site.email.display}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="label">Adresse</dt>
+                <dd className="mt-2 text-muted">
+                  <address className="not-italic">
+                    {site.name}
+                    <br />
+                    {site.address.street}
+                    <br />
+                    {site.address.postalCode} {site.address.city}
+                  </address>
+                </dd>
+              </div>
+            </dl>
 
-      <section className="pb-16 lg:pb-24">
-        <div className="container-site grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-          <div data-reveal>
-            <h2 className="h-section">Diese Angaben helfen uns weiter</h2>
-            <ul className="list-dots mt-6 max-w-[34rem] space-y-3 font-medium text-ink">
-              {questions.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <div className="mt-12 border-t border-line pt-10">
+              <h2 className="h-sub">Diese Angaben helfen weiter</h2>
+              <ul className="mt-6 space-y-3 text-muted">
+                {hints.map((item) => (
+                  <li key={item} className="border-b border-line py-3 last:border-b-0">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Placeholder className="mt-8">
+                Telefonische Erreichbarkeit (Tage und Uhrzeiten) wird ergänzt, sobald bestätigt.
+              </Placeholder>
+            </div>
           </div>
 
-          <div data-reveal style={{ "--reveal-delay": "90ms" } as CSSProperties}>
-            <div className="panel p-6 sm:p-8">
-              <InfoList
-                items={[
-                  { label: "Ansprechpartner", value: `${site.owner}, Inhaber` },
-                  {
-                    label: "Anschrift",
-                    value: (
-                      <address className="not-italic">
-                        {site.name}
-                        <br />
-                        {site.address.street}
-                        <br />
-                        {site.address.postalCode} {site.address.city}
-                      </address>
-                    ),
-                  },
-                  { label: "Antwortzeit", value: "Angebot innerhalb von 24 Stunden" },
-                ]}
-              />
-            </div>
-            <Placeholder className="mt-4">
-              Telefonische Erreichbarkeit (Tage und Uhrzeiten) ist noch nicht bestätigt und wird hier ergänzt.
-            </Placeholder>
+          <div className="col-span-12 lg:col-span-6 lg:col-start-7" data-reveal style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
+            <ContactForm />
           </div>
         </div>
       </section>

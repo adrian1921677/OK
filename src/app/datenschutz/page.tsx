@@ -21,10 +21,10 @@ export const metadata = pageMetadata({
 export default function DatenschutzPage() {
   return (
     <>
-      <PageHero breadcrumb="Datenschutz" title="Datenschutzerklärung" />
+      <PageHero label="Rechtliches" title="Datenschutzerklärung" />
 
-      <section className="pb-16 lg:pb-24">
-        <div className="container-site">
+      <section className="border-b border-line">
+        <div className="container-site py-14 lg:py-20">
           <div className="prose-legal max-w-3xl">
             <Placeholder>
               Diese Datenschutzerklärung stammt von der bisherigen Website (Stand 15. Juli 2025) und ist noch nicht an

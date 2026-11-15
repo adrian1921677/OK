@@ -1,9 +1,10 @@
-import { AboutSection } from "@/components/home/about";
-import { BeforeAfterSlider } from "@/components/home/before-after";
-import { ContactCta } from "@/components/home/contact-cta";
+import { HomeClients } from "@/components/home/clients";
+import { HomeContact } from "@/components/home/contact";
 import { HomeHero } from "@/components/home/hero";
-import { ServiceAreaSection } from "@/components/home/service-area";
-import { ServicesAccordion } from "@/components/home/services-accordion";
+import { HomeImageStrip } from "@/components/home/image-strip";
+import { HomeIntro } from "@/components/home/intro";
+import { HomeServiceArea } from "@/components/home/service-area";
+import { HomeServices } from "@/components/home/services";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
@@ -18,11 +19,12 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <ServicesAccordion />
-      <BeforeAfterSlider />
-      <AboutSection />
-      <ServiceAreaSection />
-      <ContactCta />
+      <HomeIntro />
+      <HomeServices />
+      <HomeImageStrip />
+      <HomeClients />
+      <HomeServiceArea />
+      <HomeContact />
     </>
   );
 }

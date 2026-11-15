@@ -17,10 +17,10 @@ export const metadata = pageMetadata({
 export default function ImpressumPage() {
   return (
     <>
-      <PageHero breadcrumb="Impressum" title="Impressum" />
+      <PageHero label="Rechtliches" title="Impressum" />
 
-      <section className="pb-16 lg:pb-24">
-        <div className="container-site">
+      <section className="border-b border-line">
+        <div className="container-site py-14 lg:py-20">
           <div className="prose-legal max-w-3xl">
             <Placeholder>
               Dieser Text stammt unverändert von der bisherigen Website und ist vor dem Livegang rechtlich zu prüfen.

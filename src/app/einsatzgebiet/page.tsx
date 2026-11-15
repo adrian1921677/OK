@@ -1,16 +1,11 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
-import { ContactPanel } from "@/components/contact";
-import { InfoList } from "@/components/info-list";
 import { PageHero } from "@/components/page-hero";
-import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
-import { serviceArea, services, site } from "@/lib/site";
+import { serviceArea, site } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Einsatzgebiet: Großräschen & Lausitzer Seenland",
-  description:
-    "Gebäudereinigung Kienle ist in Großräschen und im Lausitzer Seenland für Sie im Einsatz: Fensterreinigung, Treppenhausreinigung und Büroreinigung direkt aus der Region.",
+  title: "Einsatzgebiet",
+  description: `Einsatzgebiet der Gebäudereinigung Kienle: ${serviceArea.base}, ${serviceArea.towns.slice(1, 5).join(", ")} und das ${serviceArea.region}.`,
   path: "/einsatzgebiet",
 });
 
@@ -18,75 +13,49 @@ export default function EinsatzgebietPage() {
   return (
     <>
       <PageHero
-        breadcrumb="Einsatzgebiet"
-        title={`Gebäudereinigung in ${serviceArea.base} und im ${serviceArea.region}`}
-        lead="Wir sind in der Region zu Hause. Das bedeutet kurze Wege und persönliche Absprachen."
+        label="Einsatzgebiet"
+        title="Aus Großräschen in die Region."
+        lead={`Kurze Wege im ${serviceArea.region} – verlässliche Termine für Ihre Objekte.`}
       />
 
-      <section className="pb-14 lg:pb-20">
-        <div className="container-site grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-          <div data-reveal>
-            <h2 className="h-section">Von Großräschen aus für Sie unterwegs</h2>
-            <p className="mt-5 max-w-[34rem]">
-              Unser Firmensitz liegt in der {site.address.street} in {site.address.city}. Von hier aus betreuen wir
-              Objekte in {serviceArea.base} und im {serviceArea.region}.
+      <section className="border-b border-line">
+        <div className="container-site grid-12 gap-y-10 py-16 sm:py-20 lg:py-28">
+          <div className="col-span-12 lg:col-span-6" data-reveal>
+            <p className="max-w-[36rem] text-muted">
+              Ausgangspunkt ist {site.address.city}. Von dort aus betreuen wir Objekte in den umliegenden Orten – für
+              Hausverwaltungen und Unternehmen mit Bedarf an planbarer Reinigung.
             </p>
-            <p className="mt-4 max-w-[34rem]">
-              Sie sind nicht sicher, ob Ihr Standort dazugehört? Fragen Sie einfach an – wir sagen Ihnen schnell und
-              ehrlich, ob wir Ihr Objekt übernehmen können.
-            </p>
-
-            <h3 className="h-sub mt-9">Unsere Leistungen in der Region</h3>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {services.map((service) => (
-                <li key={service.slug}>
-                  <Link
-                    href={`/leistungen#${service.slug}`}
-                    className="inline-flex min-h-11 items-center rounded-full bg-mist px-5 text-[0.9375rem] font-medium text-ink transition-colors hover:bg-ink hover:text-white"
-                  >
-                    {service.title}
-                  </Link>
+            <ul className="mt-10 border-t border-line">
+              {serviceArea.towns.map((town) => (
+                <li key={town} className="border-b border-line py-4 font-serif text-xl font-light text-ink">
+                  {town}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div data-reveal style={{ "--reveal-delay": "90ms" } as CSSProperties}>
-            <div className="panel p-6 sm:p-8">
-              <InfoList
-                items={[
-                  {
-                    label: "Firmensitz",
-                    value: (
-                      <address className="not-italic">
-                        {site.address.street}
-                        <br />
-                        {site.address.postalCode} {site.address.city}
-                      </address>
-                    ),
-                  },
-                  { label: "Region", value: serviceArea.region },
-                  ...(serviceArea.towns.length > 0 ? [{ label: "Orte", value: serviceArea.towns.join(", ") }] : []),
-                ]}
+          <div className="col-span-12 lg:col-span-5 lg:col-start-8" data-reveal style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
+            <svg viewBox="0 0 320 260" role="img" aria-label="Schematische Karte des Einsatzgebiets" className="w-full text-line">
+              <rect x="1" y="1" width="318" height="258" fill="none" stroke="currentColor" strokeWidth="1" />
+              <path
+                d="M36 190 C70 120, 110 90, 160 115 C205 138, 245 95, 290 140"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
               />
-            </div>
-
-            {serviceArea.towns.length === 0 ? (
-              <Placeholder className="mt-4">
-                Liste der tatsächlich bedienten Orte. Bestätigt sind bisher nur {serviceArea.base} und das{" "}
-                {serviceArea.region}; einzelne Orte werden ergänzt, sobald Herr Kienle sie bestätigt hat.
-              </Placeholder>
-            ) : null}
+              <circle cx="98" cy="140" r="3" fill="#6B6B6B" />
+              <text x="108" y="138" fontSize="11" fill="#6B6B6B" fontFamily="system-ui, sans-serif">
+                Großräschen
+              </text>
+            </svg>
+            <p className="mt-8">
+              <Link href="/kontakt" className="text-link-accent">
+                Objekt anfragen →
+              </Link>
+            </p>
           </div>
         </div>
       </section>
-
-      <ContactPanel
-        title="Ihr Objekt liegt in der Region?"
-        text={
-          "Rufen Sie an oder schreiben Sie uns. Sie erhalten innerhalb von 24 Stunden ein kostenloses, unverbindliches Angebot."
-        }
-      />
     </>
   );
 }

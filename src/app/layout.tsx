@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { MobileContactBar } from "@/components/mobile-contact-bar";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { clashDisplay, satoshi } from "@/lib/fonts";
+import { cormorant, inter } from "@/lib/fonts";
 import { serviceArea, services, site } from "@/lib/site";
 import "./globals.css";
 
@@ -30,7 +29,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${site.name} – Fenster-, Treppenhaus- und Büroreinigung in Großräschen`,
+        alt: `${site.name} – Gebäudereinigung in Großräschen`,
       },
     ],
   },
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#111111",
+  themeColor: "#FAFAF7",
 };
 
 const jsonLd = {
@@ -87,20 +86,17 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="de" className={`${clashDisplay.variable} ${satoshi.variable}`} data-scroll-behavior="smooth">
+    <html lang="de" className={`${cormorant.variable} ${inter.variable}`} data-scroll-behavior="smooth">
       <body>
         <a
           href="#inhalt"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:border-2 focus:border-ink focus:bg-signal focus:px-4 focus:py-3 focus:font-bold focus:text-ink"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-accent focus:bg-paper focus:px-4 focus:py-3 focus:text-ink"
         >
           Zum Inhalt springen
         </a>
         <SiteHeader />
         <main id="inhalt">{children}</main>
-        <div className="pb-20 md:pb-0">
-          <SiteFooter />
-        </div>
-        <MobileContactBar />
+        <SiteFooter />
         <RevealObserver />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </body>

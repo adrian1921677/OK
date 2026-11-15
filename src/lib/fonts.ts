@@ -1,22 +1,21 @@
 import localFont from "next/font/local";
 
-export const clashDisplay = localFont({
+export const cormorant = localFont({
   src: [
-    { path: "../../public/fonts/clash-display-600.woff2", weight: "600", style: "normal" },
-    { path: "../../public/fonts/clash-display-700.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/cormorant-garamond-300.woff2", weight: "300", style: "normal" },
+    { path: "../../public/fonts/cormorant-garamond-400.woff2", weight: "400", style: "normal" },
   ],
-  variable: "--font-clash",
+  variable: "--font-cormorant",
   display: "swap",
-  fallback: ["Satoshi", "ui-sans-serif", "system-ui", "sans-serif"],
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
-export const satoshi = localFont({
+export const inter = localFont({
   src: [
-    { path: "../../public/fonts/satoshi-400.woff2", weight: "400", style: "normal" },
-    { path: "../../public/fonts/satoshi-500.woff2", weight: "500", style: "normal" },
-    { path: "../../public/fonts/satoshi-700.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/inter-400.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/inter-500.woff2", weight: "500", style: "normal" },
   ],
-  variable: "--font-satoshi",
+  variable: "--font-inter",
   display: "swap",
   fallback: ["ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"],
 });

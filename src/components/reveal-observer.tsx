@@ -4,36 +4,41 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /**
- * Blendet Elemente mit dem Attribut data-reveal ein, sobald sie in den
- * sichtbaren Bereich kommen. Was beim Laden schon sichtbar ist, bleibt
- * unangetastet; versteckt wird nur, was unterhalb liegt. Ohne JavaScript oder
- * bei reduzierter Bewegung passiert nichts und alles bleibt sichtbar.
+ * Fade-in + 12px translate-up für [data-reveal] und [data-reveal-image].
+ * Ohne JS / bei prefers-reduced-motion bleibt alles sichtbar.
  */
 export function RevealObserver() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          entry.target.setAttribute("data-reveal", "in");
+          const attr = entry.target.hasAttribute("data-reveal-image") ? "data-reveal-image" : "data-reveal";
+          entry.target.setAttribute(attr, "in");
           observer.unobserve(entry.target);
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -6% 0px", threshold: 0.08 },
     );
 
-    // erst alle Positionen lesen, dann schreiben
     const limit = window.innerHeight * 0.92;
-    const below = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]")).filter(
-      (element) => element.getBoundingClientRect().top > limit,
-    );
-    for (const element of below) {
-      element.setAttribute("data-reveal", "out");
-      observer.observe(element);
+    const nodes = [
+      ...document.querySelectorAll<HTMLElement>("[data-reveal]"),
+      ...document.querySelectorAll<HTMLElement>("[data-reveal-image]"),
+    ];
+
+    for (const element of nodes) {
+      if (element.getBoundingClientRect().top > limit) {
+        const attr = element.hasAttribute("data-reveal-image") ? "data-reveal-image" : "data-reveal";
+        element.setAttribute(attr, "out");
+        observer.observe(element);
+      }
     }
 
     return () => observer.disconnect();
