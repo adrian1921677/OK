@@ -37,9 +37,9 @@ export default function UeberUnsPage() {
       />
 
       <section className="bg-paper">
-        <div className="container-site grid-12 items-start gap-y-10 py-16 sm:py-20 lg:py-28">
+        <div className="container-site grid-12 items-start gap-y-10 py-20 sm:py-24 lg:py-32">
           <div className="col-span-12 lg:col-span-5" data-reveal-image>
-            <div className="media aspect-[4/5] shadow-[0_16px_36px_rgba(47,143,216,0.1)]">
+            <div className="media aspect-[4/5]">
               <Picture
                 src="/images/ueber-uns-raum.jpg"
                 alt="Heller Innenraum mit großen Glasflächen und Tageslicht"
@@ -54,7 +54,7 @@ export default function UeberUnsPage() {
 
           <div className="col-span-12 lg:col-span-6 lg:col-start-7" data-reveal>
             <p className="label">Unternehmen</p>
-            <h2 className="h-section mt-3 max-w-[16ch]">Familienbetrieb mit klarer Haltung.</h2>
+            <h2 className="h-section mt-4 max-w-[16ch]">Familienbetrieb mit klarer Haltung.</h2>
             <p className="mt-6 max-w-[34rem] text-muted">
               Gebäudereinigung Kienle kümmert sich um Fenster, Treppenhäuser und Büros – mit dem Anspruch, dass gepflegte
               Gebäude hell und klar wirken, ohne Aufsehen.
@@ -67,7 +67,7 @@ export default function UeberUnsPage() {
               {aboutFacts.map((fact) => (
                 <li key={fact.label} className="flex flex-wrap items-baseline justify-between gap-2">
                   <span className="label">{fact.label}</span>
-                  <span className="font-display text-[1.125rem] tracking-[-0.02em] text-ink">{fact.value}</span>
+                  <span className="font-display text-[1.25rem] tracking-[-0.01em] text-ink">{fact.value}</span>
                 </li>
               ))}
             </ul>
@@ -78,36 +78,39 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
-      <section className="section-ice">
-        <div className="container-site py-16 sm:py-20 lg:py-28">
+      <section className="section-cream">
+        <div className="container-site py-20 sm:py-24 lg:py-32">
           <p className="label" data-reveal>
             Haltung
           </p>
-          <ul className="mt-8 space-y-5">
+          <ul className="mt-10 space-y-0">
             {principles.map((item, index) => (
               <li
                 key={item.title}
-                className="glass rounded-2xl p-5 sm:p-6"
+                className="border-t border-ink/15 py-8"
                 data-reveal
                 style={{ "--reveal-delay": `${index * 70}ms` } as React.CSSProperties}
               >
-                <h3 className="font-display text-xl tracking-[-0.02em] text-ink">{item.title}</h3>
-                <p className="mt-2 max-w-[34rem] text-muted">{item.text}</p>
+                <h3 className="font-display text-2xl tracking-[-0.01em] text-ink">{item.title}</h3>
+                <p className="mt-3 max-w-[34rem] text-muted">{item.text}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="section-soft">
-        <div className="container-site py-16 sm:py-20 lg:py-28" data-reveal>
-          <div className="glass glass-sheen max-w-[40rem] p-7 sm:p-9" data-sheen="on">
-            <h2 className="h-section max-w-[14ch]">Ihr Objekt im Blick.</h2>
-            <p className="lead mt-5 max-w-[32rem]">
+      <section className="section-ink">
+        <div className="container-site py-20 sm:py-24 lg:py-32" data-reveal>
+          <div className="max-w-[40rem]">
+            <h2 className="h-section max-w-[14ch] text-cream">Ihr Objekt im Blick.</h2>
+            <p className="mt-5 max-w-[32rem] text-cream/70">
               Ob Hausverwaltung oder Unternehmen: Wir stimmen Umfang und Rhythmus auf Ihre Anforderungen ab.
             </p>
             <p className="mt-8">
-              <Link href="/kontakt" className="btn-primary">
+              <Link
+                href="/kontakt"
+                className="inline-flex min-h-12 items-center justify-center bg-cream px-6 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-85"
+              >
                 Gespräch vereinbaren
               </Link>
             </p>

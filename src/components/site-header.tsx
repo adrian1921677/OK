@@ -2,8 +2,8 @@ import { HeaderNav } from "./header-nav";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="container-site relative">
+    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-[10px]">
+      <div className="container-site">
         <HeaderNav />
       </div>
     </header>

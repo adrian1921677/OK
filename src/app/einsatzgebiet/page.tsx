@@ -18,18 +18,18 @@ export default function EinsatzgebietPage() {
         lead={`Kurze Wege im ${serviceArea.region} – verlässliche Termine für Ihre Objekte.`}
       />
 
-      <section className="section-ice">
-        <div className="container-site grid-12 gap-y-10 py-16 sm:py-20 lg:py-28">
+      <section className="section-surface">
+        <div className="container-site grid-12 gap-y-10 py-20 sm:py-24 lg:py-32">
           <div className="col-span-12 lg:col-span-6" data-reveal>
             <p className="max-w-[36rem] text-muted">
               Ausgangspunkt ist {site.address.city}. Von dort aus betreuen wir Objekte in den umliegenden Orten – für
               Hausverwaltungen und Unternehmen mit Bedarf an planbarer Reinigung.
             </p>
-            <ul className="mt-10 flex flex-wrap gap-3">
+            <ul className="mt-10 space-y-0">
               {serviceArea.towns.map((town) => (
                 <li
                   key={town}
-                  className="rounded-full border border-white/70 bg-white/80 px-4 py-2 text-[0.975rem] text-ink"
+                  className="border-b border-ink/10 py-3 font-display text-xl tracking-[-0.01em] text-ink"
                 >
                   {town}
                 </li>
@@ -42,22 +42,22 @@ export default function EinsatzgebietPage() {
             data-reveal
             style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
           >
-            <div className="glass rounded-2xl p-5">
+            <div className="border border-ink/10 bg-paper p-5">
               <svg
                 viewBox="0 0 320 260"
                 role="img"
                 aria-label="Schematische Karte des Einsatzgebiets"
                 className="w-full"
               >
-                <rect x="0" y="0" width="320" height="260" rx="12" fill="#F8FBFE" />
+                <rect x="0" y="0" width="320" height="260" fill="#F7F5F0" />
                 <path
                   d="M36 190 C70 120, 110 90, 160 115 C205 138, 245 95, 290 140"
                   fill="none"
-                  stroke="#D7E3EE"
-                  strokeWidth="2"
+                  stroke="#DDD6CA"
+                  strokeWidth="1.5"
                 />
-                <circle cx="98" cy="140" r="5" fill="#2F8FD8" />
-                <text x="112" y="144" fontSize="12" fill="#5B6B78" fontFamily="system-ui, sans-serif">
+                <circle cx="98" cy="140" r="4.5" fill="#0D0D11" />
+                <text x="112" y="144" fontSize="12" fill="#6A655E" fontFamily="system-ui, sans-serif">
                   Großräschen
                 </text>
               </svg>
@@ -66,13 +66,16 @@ export default function EinsatzgebietPage() {
         </div>
       </section>
 
-      <section className="section-soft">
-        <div className="container-site py-16 sm:py-20 lg:py-28" data-reveal>
-          <div className="glass glass-sheen max-w-[40rem] p-7 sm:p-9" data-sheen="on">
-            <h2 className="h-section max-w-[16ch]">Objekt in der Region?</h2>
-            <p className="lead mt-5">Schildern Sie uns Standort und Bedarf – wir melden uns zeitnah.</p>
+      <section className="section-ink">
+        <div className="container-site py-20 sm:py-24 lg:py-32" data-reveal>
+          <div className="max-w-[40rem]">
+            <h2 className="h-section max-w-[16ch] text-cream">Objekt in der Region?</h2>
+            <p className="mt-5 text-cream/70">Schildern Sie uns Standort und Bedarf – wir melden uns zeitnah.</p>
             <p className="mt-8">
-              <Link href="/kontakt" className="btn-primary">
+              <Link
+                href="/kontakt"
+                className="inline-flex min-h-12 items-center justify-center bg-cream px-6 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-85"
+              >
                 Angebot anfragen
               </Link>
             </p>

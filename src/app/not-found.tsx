@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="section-soft">
+    <section className="section-cream">
       <div className="container-site max-w-2xl py-20 lg:py-28">
         <p className="label">404</p>
         <h1 className="h-page mt-4">Diese Seite gibt es nicht.</h1>

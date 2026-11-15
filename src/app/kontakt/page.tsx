@@ -27,18 +27,14 @@ export default function KontaktPage() {
         lead="Telefon, WhatsApp, E-Mail oder Formular – wir melden uns mit einem klaren, unverbindlichen Angebot."
       />
 
-      <section className="section-soft">
-        <div className="container-site py-16 sm:py-20 lg:py-28">
-          <div
-            className="glass glass-sheen grid gap-10 p-6 sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10"
-            data-reveal
-            data-sheen="on"
-          >
+      <section className="bg-paper">
+        <div className="container-site py-20 sm:py-24 lg:py-32">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16" data-reveal>
             <div>
               <dl className="space-y-7">
                 <div>
                   <dt className="label">Telefon</dt>
-                  <dd className="mt-2 font-display text-2xl tracking-[-0.02em]">
+                  <dd className="mt-2 font-display text-2xl tracking-[-0.01em]">
                     <a href={site.phone.href} className="text-link">
                       {site.phone.display}
                     </a>

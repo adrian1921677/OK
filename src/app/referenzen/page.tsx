@@ -22,14 +22,14 @@ export default function ReferenzenPage() {
       />
 
       <section className="bg-paper">
-        <div className="container-site py-16 sm:py-20 lg:py-28">
+        <div className="container-site py-20 sm:py-24 lg:py-32">
           {site.showPlaceholders ? (
             <Placeholder className="mb-10 max-w-[40rem]">
               Beispielbilder (Stock) zur Vorschau. Eigene Objektfotos ersetzen sie später. Keine Kundennamen ohne Freigabe.
             </Placeholder>
           ) : null}
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-12 sm:gap-5">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-12 sm:gap-6">
             {galleryPlaceholders.map((item, index) => (
               <figure
                 key={item.src}
@@ -39,7 +39,7 @@ export default function ReferenzenPage() {
                 data-reveal
                 style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}
               >
-                <div className={`media shadow-[0_14px_32px_rgba(47,143,216,0.08)] ${index === 1 ? "aspect-[3/4]" : "aspect-[16/11]"}`}>
+                <div className={`media ${index === 1 ? "aspect-[3/4]" : "aspect-[16/11]"}`}>
                   <Picture
                     src={item.src}
                     alt={item.alt}
@@ -50,22 +50,25 @@ export default function ReferenzenPage() {
                     priority={index === 0}
                   />
                 </div>
-                <figcaption className="label mt-3">{item.caption}</figcaption>
+                <figcaption className="label mt-4">{item.caption}</figcaption>
               </figure>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-soft">
-        <div className="container-site py-16 sm:py-20 lg:py-28" data-reveal>
-          <div className="glass glass-sheen max-w-[40rem] p-7 sm:p-9" data-sheen="on">
-            <h2 className="h-section max-w-[16ch]">Referenzobjekt besprechen.</h2>
-            <p className="lead mt-5 max-w-[32rem]">
+      <section className="section-ink">
+        <div className="container-site py-20 sm:py-24 lg:py-32" data-reveal>
+          <div className="max-w-[40rem]">
+            <h2 className="h-section max-w-[16ch] text-cream">Referenzobjekt besprechen.</h2>
+            <p className="mt-5 max-w-[32rem] text-cream/70">
               Schildern Sie uns Ihr Gebäude. Wir sagen Ihnen, welche Reinigung sinnvoll ist und wie der Ablauf aussieht.
             </p>
             <p className="mt-8">
-              <Link href="/kontakt" className="btn-primary">
+              <Link
+                href="/kontakt"
+                className="inline-flex min-h-12 items-center justify-center bg-cream px-6 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-85"
+              >
                 Angebot anfragen
               </Link>
             </p>

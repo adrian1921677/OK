@@ -6,9 +6,9 @@ export function Placeholder({ children, className = "" }: { children: React.Reac
 
   return (
     <aside
-      className={`rounded-xl border border-dashed border-line bg-white/70 px-4 py-3 text-[0.875rem] leading-relaxed text-muted ${className}`}
+      className={`border border-dashed border-line bg-paper/60 px-4 py-3 text-[0.875rem] leading-relaxed text-muted ${className}`}
     >
-      <p className="label mb-2 text-accent">Platzhalter</p>
+      <p className="label mb-2">Platzhalter</p>
       <div>{children}</div>
     </aside>
   );

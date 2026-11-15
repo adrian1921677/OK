@@ -5,10 +5,10 @@ export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`font-display text-[1.2rem] font-medium tracking-[-0.02em] text-ink transition-colors hover:text-accent sm:text-[1.3rem] ${className}`}
+      className={`font-script whitespace-nowrap text-[1.35rem] leading-none text-ink transition-opacity hover:opacity-70 sm:text-[1.75rem] lg:text-[1.9rem] ${className}`}
       aria-label={`${site.name} – zur Startseite`}
     >
-      {site.shortName}
+      {site.owner}
     </Link>
   );
 }

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { instrumentSans, inter } from "@/lib/fonts";
+import { greatVibes, instrumentSerif, inter } from "@/lib/fonts";
 import { serviceArea, services, site } from "@/lib/site";
 import "./globals.css";
 
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F2F7FB",
+  themeColor: "#F7F5F0",
 };
 
 const jsonLd = {
@@ -86,11 +86,15 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="de" className={`${instrumentSans.variable} ${inter.variable}`} data-scroll-behavior="smooth">
+    <html
+      lang="de"
+      className={`${greatVibes.variable} ${instrumentSerif.variable} ${inter.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body>
         <a
           href="#inhalt"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-paper focus:px-4 focus:py-3 focus:text-ink focus:shadow-[0_0_0_2px_var(--color-accent)]"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-paper focus:px-4 focus:py-3 focus:text-ink focus:shadow-[0_0_0_1.5px_var(--color-ink)]"
         >
           Zum Inhalt springen
         </a>

@@ -33,8 +33,6 @@ export function HomeGlassWipe() {
     const updateFromScroll = () => {
       const rect = el.getBoundingClientRect();
       const view = window.innerHeight || 1;
-      // 0: Scheibe betritt den unteren Viewport; 1: Scheibe hat den oberen Bereich erreicht
-      // (weiterer Scroll-Weg als zuvor, damit Progress zuverlässig 100 % erreicht)
       const start = view * 0.92;
       const end = Math.max(view * -0.05, -rect.height * 0.35);
       const span = start - end || 1;
@@ -71,21 +69,21 @@ export function HomeGlassWipe() {
   const wipe = Math.round(progress * 100);
 
   return (
-    <section className="bg-paper py-16 sm:py-20 lg:py-28" aria-labelledby="wipe-titel">
+    <section className="bg-paper py-20 sm:py-24 lg:py-32" aria-labelledby="wipe-titel">
       <div className="container-site">
         <div className="max-w-[36rem]" data-reveal>
           <p className="label">Streifenfrei</p>
-          <h2 id="wipe-titel" className="h-section mt-3">
+          <h2 id="wipe-titel" className="h-section mt-4">
             Vom Beschlag zur klaren Sicht.
           </h2>
-          <p className="lead mt-4">
+          <p className="lead mt-5">
             Scrollen oder mit dem Zeiger über das Glas fahren – die Fläche wird freigewischt.
           </p>
         </div>
 
         <div
           ref={ref}
-          className="media relative mt-10 aspect-[16/10] cursor-ew-resize shadow-[0_20px_50px_rgba(47,143,216,0.12)]"
+          className="media relative mt-12 aspect-[16/10] cursor-ew-resize"
           onPointerMove={onPointerMove}
           role="img"
           aria-label="Beschlagenes Glas wird freigewischt und zeigt darunter die klare Fassade"
@@ -119,7 +117,7 @@ export function HomeGlassWipe() {
             />
           ) : null}
           <div
-            className="pointer-events-none absolute inset-y-0 w-px bg-white/80 shadow-[0_0_18px_rgba(255,255,255,0.9)]"
+            className="pointer-events-none absolute inset-y-0 w-px bg-cream"
             style={{ left: `${wipe}%` }}
             aria-hidden="true"
           />

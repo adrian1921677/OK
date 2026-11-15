@@ -48,23 +48,22 @@ export function HomeBeforeAfter() {
 
   return (
     <section className="bg-paper" aria-labelledby={labelId}>
-      <div className="container-site py-16 sm:py-20 lg:py-28">
-        <div className="max-w-[34rem]" data-reveal>
+      <div className="container-site py-20 sm:py-24 lg:py-32">
+        <div className="max-w-[36rem]" data-reveal>
           <p className="label">Vorher / Nachher</p>
-          <h2 id={labelId} className="h-section mt-3">
+          <h2 id={labelId} className="h-section mt-4">
             Schmutziges Glas, klar gezogen.
           </h2>
-          <p className="lead mt-4">Ziehen Sie den Griff und vergleichen Sie den Unterschied.</p>
+          <p className="lead mt-5">Ziehen Sie den Griff und vergleichen Sie den Unterschied.</p>
         </div>
 
         <div
           ref={trackRef}
-          className="media relative mt-10 aspect-[16/10] touch-none select-none shadow-[0_18px_44px_rgba(47,143,216,0.1)]"
+          className="media relative mt-12 aspect-[16/10] touch-none select-none"
           data-reveal
           role="img"
           aria-label="Vergleich: beschlagenes Glas links, klare Scheibe rechts"
         >
-          {/* Gleiches Scheiben-Motiv wie der Wipe-Effekt (klar / beschlagen) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/wipe-klar.jpg"
@@ -89,12 +88,12 @@ export function HomeBeforeAfter() {
           />
 
           <div
-            className="pointer-events-none absolute inset-y-0 z-10 w-px bg-white"
+            className="pointer-events-none absolute inset-y-0 z-10 w-px bg-cream"
             style={{ left: `${value}%` }}
             aria-hidden="true"
           >
-            <span className="absolute top-1/2 left-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/70 bg-white/80 shadow-[0_8px_24px_rgba(47,143,216,0.2)] backdrop-blur-[8px]">
-              <span className="h-4 w-4 rounded-full bg-accent" />
+            <span className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-cream/80 bg-paper/90">
+              <span className="h-2 w-2 rounded-full bg-ink" />
             </span>
           </div>
 
@@ -111,10 +110,10 @@ export function HomeBeforeAfter() {
             className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
           />
 
-          <span className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/75 px-3 py-1 text-[0.75rem] font-medium text-ink backdrop-blur-[8px]">
+          <span className="pointer-events-none absolute left-4 top-4 bg-paper/85 px-3 py-1 text-[0.7rem] font-medium tracking-[0.12em] uppercase text-ink">
             Vorher
           </span>
-          <span className="pointer-events-none absolute right-4 top-4 rounded-full bg-white/75 px-3 py-1 text-[0.75rem] font-medium text-ink backdrop-blur-[8px]">
+          <span className="pointer-events-none absolute right-4 top-4 bg-paper/85 px-3 py-1 text-[0.7rem] font-medium tracking-[0.12em] uppercase text-ink">
             Nachher
           </span>
         </div>

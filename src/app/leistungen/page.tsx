@@ -37,11 +37,11 @@ export default function LeistungenPage() {
           key={service.slug}
           id={service.slug}
           aria-labelledby={`${service.slug}-titel`}
-          className={index % 2 === 1 ? "section-ice" : "bg-paper"}
+          className={index % 2 === 1 ? "section-surface" : "bg-paper"}
         >
-          <div className="container-site grid-12 items-center gap-y-10 py-16 sm:py-20 lg:py-28">
+          <div className="container-site grid-12 items-center gap-y-10 py-20 sm:py-24 lg:py-32">
             <div className={`col-span-12 lg:col-span-5 ${index % 2 === 1 ? "lg:col-start-8 lg:order-2" : ""}`}>
-              <div className="media aspect-[4/3] shadow-[0_16px_36px_rgba(47,143,216,0.1)]" data-reveal-image>
+              <div className="media aspect-[4/3]" data-reveal-image>
                 <Picture
                   src={service.image}
                   alt={service.imageAlt}
@@ -79,18 +79,24 @@ export default function LeistungenPage() {
         </section>
       ))}
 
-      <section className="section-soft">
-        <div className="container-site py-16 sm:py-20 lg:py-28">
-          <div className="glass glass-sheen max-w-[40rem] p-7 sm:p-9" data-reveal data-sheen="on">
-            <h2 className="h-section max-w-[16ch]">Passende Reinigung für Ihr Objekt.</h2>
-            <p className="lead mt-5 max-w-[32rem]">
+      <section className="section-ink">
+        <div className="container-site py-20 sm:py-24 lg:py-32">
+          <div className="max-w-[40rem]" data-reveal>
+            <h2 className="h-section max-w-[16ch] text-cream">Passende Reinigung für Ihr Objekt.</h2>
+            <p className="mt-5 max-w-[32rem] text-cream/70">
               Beschreiben Sie kurz Objekt und Bedarf. Wir melden uns mit einem klaren, unverbindlichen Angebot.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/kontakt" className="btn-primary">
+              <Link
+                href="/kontakt"
+                className="inline-flex min-h-12 items-center justify-center bg-cream px-6 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-85"
+              >
                 Angebot anfragen
               </Link>
-              <a href={site.phone.href} className="btn-secondary">
+              <a
+                href={site.phone.href}
+                className="inline-flex min-h-12 items-center justify-center border border-cream/50 px-6 text-[0.9375rem] font-medium text-cream transition-colors hover:bg-cream/10"
+              >
                 {site.phone.display}
               </a>
             </div>
