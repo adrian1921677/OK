@@ -33,9 +33,12 @@ export function HomeGlassWipe() {
     const updateFromScroll = () => {
       const rect = el.getBoundingClientRect();
       const view = window.innerHeight || 1;
-      const start = view * 0.85;
-      const end = view * 0.25;
-      const raw = (start - rect.top) / (start - end);
+      // 0: Scheibe betritt den unteren Viewport; 1: Scheibe hat den oberen Bereich erreicht
+      // (weiterer Scroll-Weg als zuvor, damit Progress zuverlässig 100 % erreicht)
+      const start = view * 0.92;
+      const end = Math.max(view * -0.05, -rect.height * 0.35);
+      const span = start - end || 1;
+      const raw = (start - rect.top) / span;
       setProgress(Math.min(1, Math.max(0, raw)));
     };
 
@@ -61,8 +64,8 @@ export function HomeGlassWipe() {
     const rect = el.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width;
     const y = (event.clientY - rect.top) / rect.height;
-    const fromPointer = Math.min(1, Math.max(0, (x * 0.65 + (1 - y) * 0.35) * 1.15));
-    setProgress((prev) => Math.max(prev, fromPointer * 0.92));
+    const fromPointer = Math.min(1, Math.max(0, x * 0.7 + (1 - y) * 0.3));
+    setProgress((prev) => Math.max(prev, fromPointer));
   }
 
   const wipe = Math.round(progress * 100);

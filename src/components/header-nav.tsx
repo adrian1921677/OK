@@ -31,10 +31,7 @@ export function HeaderNav() {
   return (
     <>
       {/* Glass pill only — overflow:hidden stays on .glass; menu is a sibling below */}
-      <div
-        className="glass glass-nav glass-sheen relative flex h-[3.75rem] items-center justify-between gap-3 px-3 shadow-[0_8px_30px_rgba(47,143,216,0.08)] sm:h-[4.25rem] sm:gap-4 sm:px-5"
-        data-sheen="on"
-      >
+      <div className="glass glass-nav relative flex h-[3.75rem] items-center justify-between gap-3 px-3 shadow-[0_8px_30px_rgba(47,143,216,0.08)] sm:h-[4.25rem] sm:gap-4 sm:px-5">
         <Wordmark />
 
         <nav aria-label="Hauptnavigation" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
@@ -54,8 +51,23 @@ export function HeaderNav() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <a href={site.phone.href} className="btn-phone shrink-0">
-            {site.phone.display}
+          <a
+            href={site.phone.href}
+            className="btn-phone btn-phone-header shrink-0"
+            aria-label={`Anrufen ${site.phone.display}`}
+          >
+            <svg
+              className="h-5 w-5 lg:hidden"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M8.05 3.5c.4-.4 1.05-.45 1.5-.12l2.1 1.55c.4.3.55.85.35 1.32l-.85 1.95c-.15.35-.1.75.15 1.05l2.45 2.45c.3.25.7.3 1.05.15l1.95-.85c.47-.2 1.02-.05 1.32.35l1.55 2.1c.33.45.28 1.1-.12 1.5l-1.2 1.2c-.55.55-1.3.8-2.05.7-1.85-.25-4.5-1.55-6.95-4-2.45-2.45-3.75-5.1-4-6.95-.1-.75.15-1.5.7-2.05l1.2-1.2Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span className="hidden lg:inline">{site.phone.display}</span>
           </a>
           <button
             type="button"

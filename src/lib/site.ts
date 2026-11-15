@@ -85,7 +85,7 @@ export const services: Service[] = [
     ],
     points: ["Alle Etagen und Zugänge", "Regelmäßige, planbare Einsätze", "Feste Ansprechpartner"],
     image: "/images/service-treppenhaus.jpg",
-    imageAlt: "Helles Treppenhaus mit Glasgeländer und Tageslicht",
+    imageAlt: "Treppenhaus in einem Wohngebäude mit Handläufen und Etagenzugängen",
   },
   {
     slug: "bueroreinigung",
@@ -127,7 +127,7 @@ export const galleryPlaceholders = [
   },
   {
     src: "/images/referenz-treppenhaus.jpg",
-    alt: "Helles Treppenhaus mit Glasgeländer",
+    alt: "Treppenhaus in einem Mehrfamilienhaus",
     caption: "Treppenhaus",
     span: "tall" as const,
   },

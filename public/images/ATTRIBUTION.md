@@ -6,9 +6,8 @@ Beispielbilder für Design und Vorschau. Alle Quellen sind frei für kommerziell
 | --- | --- | --- | --- | --- |
 | `hero-glasfassade`, `og-image` | Unsplash contributor | [https://images.unsplash.com/photo-1481026469463-66327c86e544](https://images.unsplash.com/photo-1481026469463-66327c86e544) | Unsplash License | Helle Glasfassaden-Ecke, kühle Töne |
 | `wipe-klar`, `wipe-beschlagen`, `nachher-glas`, `strip-fassade` | Joel Filipe | [https://unsplash.com/photos/1487958449943-2429e8be8625](https://unsplash.com/photos/1487958449943-2429e8be8625) | Unsplash License | Helle Glas-/Betonfassade mit Himmel |
-| `vorher-glas` | Max Bender | [https://unsplash.com/photos/1515694346937-94d85e41e6f0](https://unsplash.com/photos/1515694346937-94d85e41e6f0) | Unsplash License | Wassertropfen auf Glas |
 | `service-fenster`, `referenz-fenster` | Cihat Dede | [https://www.pexels.com/photo/professional-window-cleaner-at-work-outdoors-37440103/](https://www.pexels.com/photo/professional-window-cleaner-at-work-outdoors-37440103/) | Pexels License | Fensterreinigung mit Abzieher |
-| `service-treppenhaus`, `referenz-treppenhaus` | Vecislavas Popa | [https://www.pexels.com/photo/1571460/](https://www.pexels.com/photo/1571460/) | Pexels License | Helles Interieur mit Glastreppe |
+| `service-treppenhaus`, `referenz-treppenhaus` | adrian vieriu | [https://www.pexels.com/photo/stairwell-in-a-building-11660580/](https://www.pexels.com/photo/stairwell-in-a-building-11660580/) | Pexels License | Treppenhaus in einem Wohngebäude mit Granitstufen und Handläufen |
 | `service-buero` | Nastuh Abootalebi | [https://unsplash.com/photos/1497366216548-37526070297c](https://unsplash.com/photos/1497366216548-37526070297c) | Unsplash License | Heller Büroraum mit Glaswänden |
 | `ueber-uns-raum` | Nastuh Abootalebi | [https://unsplash.com/photos/1497366811353-6870744d04b2](https://unsplash.com/photos/1497366811353-6870744d04b2) | Unsplash License | Besprechungsraum mit Glasfront |
 | `strip-treppenhaus` | mingche lee | [https://www.pexels.com/photo/modern-interior-of-a-multi-story-glass-building-28532416/](https://www.pexels.com/photo/modern-interior-of-a-multi-story-glass-building-28532416/) | Pexels License | Helles Glas-Atrium |
@@ -21,4 +20,4 @@ Beispielbilder für Design und Vorschau. Alle Quellen sind frei für kommerziell
 
 ## Technik
 
-Export: `node scripts/import-sample-photos.mjs` (JPG + WebP + AVIF, passende Zuschnitte). Wipe-/Vorher-Varianten teils aus dem Klar-Motiv per Soft-Fog abgeleitet, damit Clip-Path-Wipes deckungsgleich bleiben.
+Export: `node scripts/import-sample-photos.mjs` (JPG + WebP + AVIF, passende Zuschnitte). Wipe-/Vorher-Varianten aus dem Klar-Motiv per starkem Fog (Blur + weißer Schleier ~60 %) abgeleitet, damit Clip-Path-Wipes deckungsgleich bleiben.

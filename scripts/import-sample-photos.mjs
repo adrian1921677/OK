@@ -64,12 +64,12 @@ const SOURCES = {
     license: "Pexels License",
     note: "Fensterreinigung mit Abzieher",
   },
-  stairsGlass: {
-    url: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=2400",
-    credit: "Vecislavas Popa",
-    page: "https://www.pexels.com/photo/1571460/",
+  stairsApartment: {
+    url: "https://images.pexels.com/photos/11660580/pexels-photo-11660580.jpeg?auto=compress&cs=tinysrgb&w=2400",
+    credit: "adrian vieriu",
+    page: "https://www.pexels.com/photo/stairwell-in-a-building-11660580/",
     license: "Pexels License",
-    note: "Helles Interieur mit Glastreppe",
+    note: "Treppenhaus in einem Wohngebäude mit Granitstufen und Handläufen",
   },
   atrium: {
     url: "https://images.pexels.com/photos/28532416/pexels-photo-28532416.jpeg?auto=compress&cs=tinysrgb&w=2400",
@@ -153,24 +153,25 @@ async function fit(file, width, height, { brighten = 1, saturate = 1.05 } = {}) 
   return pipeline.toBuffer();
 }
 
-async function fogBuffer(clearBuf, amount = 0.48) {
+async function fogBuffer(clearBuf, amount = 0.6) {
   const meta = await sharp(clearBuf).metadata();
   const w = meta.width;
   const h = meta.height;
+  // Starker Beschlag: weißer Schleier ~60 % + deutlicher Blur
   const overlay = await sharp({
     create: {
       width: w,
       height: h,
       channels: 4,
-      background: { r: 210, g: 225, b: 235, alpha: amount },
+      background: { r: 255, g: 255, b: 255, alpha: amount },
     },
   })
     .png()
     .toBuffer();
 
   return sharp(clearBuf)
-    .modulate({ brightness: 0.92, saturation: 0.78 })
-    .blur(1.2)
+    .modulate({ brightness: 1.04, saturation: 0.55 })
+    .blur(14)
     .composite([{ input: overlay, blend: "over" }])
     .jpeg({ quality: 88 })
     .toBuffer();
@@ -199,13 +200,12 @@ async function main() {
   use("facadeJoel", ["wipe-klar", "wipe-beschlagen", "nachher-glas", "strip-fassade"]);
   const wipeKlar = await fit(files.facadeJoel, 1600, 1000, { brighten: 1.08 });
   await writeAll("wipe-klar", wipeKlar);
-  await writeAll("wipe-beschlagen", await fogBuffer(wipeKlar, 0.52));
+  await writeAll("wipe-beschlagen", await fogBuffer(wipeKlar, 0.6));
 
-  // Vorher / Nachher
-  use("drops", ["vorher-glas"]);
-  await writeAll("vorher-glas", await fit(files.drops, 1400, 900, { brighten: 1.04, saturate: 0.95 }));
+  // Vorher / Nachher teilen dasselbe Scheiben-Motiv (UI nutzt wipe-*)
   const nachher = await fit(files.facadeJoel, 1400, 900, { brighten: 1.1 });
   await writeAll("nachher-glas", nachher);
+  await writeAll("vorher-glas", await fogBuffer(nachher, 0.6));
 
   // Services
   use("squeegee", ["service-fenster", "referenz-fenster"]);
@@ -214,10 +214,10 @@ async function main() {
     await fit(files.squeegee, 1400, 1050, { brighten: 1.12, saturate: 1.02 }),
   );
 
-  use("stairsGlass", ["service-treppenhaus", "referenz-treppenhaus"]);
+  use("stairsApartment", ["service-treppenhaus", "referenz-treppenhaus"]);
   await writeAll(
     "service-treppenhaus",
-    await fit(files.stairsGlass, 1400, 1050, { brighten: 1.05 }),
+    await fit(files.stairsApartment, 1400, 1050, { brighten: 1.04 }),
   );
 
   use("officeBright", ["service-buero"]);
@@ -247,7 +247,7 @@ async function main() {
   );
   await writeAll(
     "referenz-treppenhaus",
-    await fit(files.stairsGlass, 1200, 1500, { brighten: 1.05 }),
+    await fit(files.stairsApartment, 1200, 1500, { brighten: 1.04 }),
   );
   await writeAll(
     "referenz-buero",
@@ -302,7 +302,7 @@ async function main() {
     "",
     "## Technik",
     "",
-    "Export: `node scripts/import-sample-photos.mjs` (JPG + WebP + AVIF, passende Zuschnitte). Wipe-/Vorher-Varianten teils aus dem Klar-Motiv per Soft-Fog abgeleitet, damit Clip-Path-Wipes deckungsgleich bleiben.",
+    "Export: `node scripts/import-sample-photos.mjs` (JPG + WebP + AVIF, passende Zuschnitte). Wipe-/Vorher-Varianten aus dem Klar-Motiv per starkem Fog (Blur + weißer Schleier ~60 %) abgeleitet, damit Clip-Path-Wipes deckungsgleich bleiben.",
     "",
   );
 

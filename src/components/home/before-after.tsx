@@ -62,24 +62,25 @@ export function HomeBeforeAfter() {
           className="media relative mt-10 aspect-[16/10] touch-none select-none shadow-[0_18px_44px_rgba(47,143,216,0.1)]"
           data-reveal
           role="img"
-          aria-label="Vergleich: verschmutztes Glas links, gereinigtes Glas rechts"
+          aria-label="Vergleich: beschlagenes Glas links, klare Scheibe rechts"
         >
+          {/* Gleiches Scheiben-Motiv wie der Wipe-Effekt (klar / beschlagen) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/nachher-glas.jpg"
+            src="/images/wipe-klar.jpg"
             alt=""
-            width={1400}
-            height={900}
+            width={1600}
+            height={1000}
             className="absolute inset-0 h-full w-full object-cover"
             decoding="async"
             loading="lazy"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/vorher-glas.jpg"
+            src="/images/wipe-beschlagen.jpg"
             alt=""
-            width={1400}
-            height={900}
+            width={1600}
+            height={1000}
             className="absolute inset-0 h-full w-full object-cover"
             style={{ clipPath: `inset(0 ${100 - value}% 0 0)` }}
             decoding="async"

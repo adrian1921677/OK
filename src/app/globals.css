@@ -311,6 +311,15 @@
     box-shadow: 0 8px 22px rgba(47, 143, 216, 0.2);
   }
 
+  /* Mobile header: icon-only phone so Logo + Menü Luft haben */
+  @media (max-width: 1023.98px) {
+    .btn-phone-header {
+      width: 2.5rem;
+      min-width: 2.5rem;
+      padding-inline: 0;
+    }
+  }
+
   .text-link {
     color: var(--color-ink);
     text-decoration: none;
