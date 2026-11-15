@@ -9,7 +9,7 @@ export function HomeAbout() {
           <div className="media aspect-[4/5] max-w-[34rem] shadow-[0_18px_40px_rgba(47,143,216,0.1)]">
             <Picture
               src="/images/ueber-uns-raum.jpg"
-              alt="Platzhalter ueber-uns-raum: heller Innenraum mit Glas und Tageslicht"
+              alt="Heller Innenraum mit großen Glasflächen und Tageslicht"
               width={1200}
               height={1500}
               sizes="(min-width: 1024px) 42vw, 100vw"

@@ -73,7 +73,7 @@ export const services: Service[] = [
     ],
     points: ["Streifenfreie Glasflächen", "Reinigung innen und außen", "Planbare Intervalle"],
     image: "/images/service-fenster.jpg",
-    imageAlt: "Platzhalter service-fenster: Abzieher auf heller Glasfläche",
+    imageAlt: "Fensterreinigung mit Abzieher an einer Glasfläche",
   },
   {
     slug: "treppenhausreinigung",
@@ -85,7 +85,7 @@ export const services: Service[] = [
     ],
     points: ["Alle Etagen und Zugänge", "Regelmäßige, planbare Einsätze", "Feste Ansprechpartner"],
     image: "/images/service-treppenhaus.jpg",
-    imageAlt: "Platzhalter service-treppenhaus: helles Treppenhaus mit Tageslicht",
+    imageAlt: "Helles Treppenhaus mit Glasgeländer und Tageslicht",
   },
   {
     slug: "bueroreinigung",
@@ -97,7 +97,7 @@ export const services: Service[] = [
     ],
     points: ["Büros und Praxen", "Flexible Einsatzzeiten", "Konstante Qualität"],
     image: "/images/service-buero.jpg",
-    imageAlt: "Platzhalter service-buero: heller Büroraum mit Glas",
+    imageAlt: "Heller Büroraum mit Glaswänden",
   },
 ];
 
@@ -121,19 +121,19 @@ export const serviceArea = {
 export const galleryPlaceholders = [
   {
     src: "/images/referenz-fenster.jpg",
-    alt: "Platzhalter referenz-fenster: helle Glasfassade mit Himmel",
+    alt: "Professionelle Fensterreinigung an einer Glasfläche",
     caption: "Fenster",
     span: "wide" as const,
   },
   {
     src: "/images/referenz-treppenhaus.jpg",
-    alt: "Platzhalter referenz-treppenhaus: helles Treppenhaus",
+    alt: "Helles Treppenhaus mit Glasgeländer",
     caption: "Treppenhaus",
     span: "tall" as const,
   },
   {
     src: "/images/referenz-buero.jpg",
-    alt: "Platzhalter referenz-buero: heller Büroraum",
+    alt: "Heller Büroraum nach der Reinigung",
     caption: "Büro",
     span: "normal" as const,
   },
@@ -146,7 +146,7 @@ export const aboutFacts = [
 ] as const;
 
 export const OPEN_ITEMS = [
-  "Echte Glas- und Objektfotos liefern (Platzhalter ersetzen)",
+  "Eigene Objektfotos liefern (Stock-Beispielfotos ersetzen)",
   "Persönlichen Text und Porträt von Oliver Kienle liefern",
   "Erreichbarkeit / Zeiten bestätigen",
   "Datenschutzerklärung und Impressum rechtlich prüfen",

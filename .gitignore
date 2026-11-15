@@ -13,3 +13,4 @@ npm-debug.log*
 # Local / agent tooling
 .claude/
 .playwright-mcp/
+.tmp-stock/

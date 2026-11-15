@@ -8,7 +8,7 @@ export function HomeHero() {
       <div className="absolute inset-0">
         <Picture
           src="/images/hero-glasfassade.jpg"
-          alt="Platzhalter hero-glasfassade: helle Glasfassade mit Himmel"
+          alt="Helle moderne Glasfassade mit Himmel"
           priority
           sizes="100vw"
           width={1920}

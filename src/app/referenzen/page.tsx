@@ -18,14 +18,14 @@ export default function ReferenzenPage() {
       <PageHero
         label="Referenzen"
         title="Objekte und Eindrücke."
-        lead="Hier erscheinen ausschließlich eigene Aufnahmen. Bis dahin markieren wir die Bildplätze klar als Platzhalter."
+        lead="Einblicke in Fenster-, Treppenhaus- und Büroreinigung – aktuell mit freien Beispielfotos, bis eigene Objektaufnahmen vorliegen."
       />
 
       <section className="bg-paper">
         <div className="container-site py-16 sm:py-20 lg:py-28">
           {site.showPlaceholders ? (
             <Placeholder className="mb-10 max-w-[40rem]">
-              Echte Objektfotos ersetzen die Glas-Platzhalter. Keine Kundennamen ohne Freigabe.
+              Beispielbilder (Stock) zur Vorschau. Eigene Objektfotos ersetzen sie später. Keine Kundennamen ohne Freigabe.
             </Placeholder>
           ) : null}
 
