@@ -24,60 +24,74 @@ export default function KontaktPage() {
       <PageHero
         label="Kontakt"
         title="Sprechen wir über Ihr Objekt."
-        lead="Telefon, E-Mail oder Formular – wir melden uns mit einem klaren, unverbindlichen Angebot."
+        lead="Telefon, WhatsApp, E-Mail oder Formular – wir melden uns mit einem klaren, unverbindlichen Angebot."
       />
 
-      <section className="border-b border-line">
-        <div className="container-site grid-12 gap-y-14 py-16 sm:py-20 lg:py-28">
-          <div className="col-span-12 lg:col-span-5" data-reveal>
-            <dl className="space-y-8">
-              <div>
-                <dt className="label">Telefon</dt>
-                <dd className="mt-2 font-serif text-2xl font-light">
-                  <a href={site.phone.href} className="text-link">
-                    {site.phone.display}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="label">E-Mail</dt>
-                <dd className="mt-2">
-                  <a href={site.email.href} className="text-link break-all">
-                    {site.email.display}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="label">Adresse</dt>
-                <dd className="mt-2 text-muted">
-                  <address className="not-italic">
-                    {site.name}
-                    <br />
-                    {site.address.street}
-                    <br />
-                    {site.address.postalCode} {site.address.city}
-                  </address>
-                </dd>
-              </div>
-            </dl>
+      <section className="section-soft">
+        <div className="container-site py-16 sm:py-20 lg:py-28">
+          <div
+            className="glass glass-sheen grid gap-10 p-6 sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10"
+            data-reveal
+            data-sheen="on"
+          >
+            <div>
+              <dl className="space-y-7">
+                <div>
+                  <dt className="label">Telefon</dt>
+                  <dd className="mt-2 font-display text-2xl tracking-[-0.02em]">
+                    <a href={site.phone.href} className="text-link">
+                      {site.phone.display}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="label">WhatsApp</dt>
+                  <dd className="mt-2">
+                    <a href={site.whatsapp.href} className="text-link-accent" target="_blank" rel="noopener noreferrer">
+                      Nachricht senden
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="label">E-Mail</dt>
+                  <dd className="mt-2">
+                    <a href={site.email.href} className="text-link break-all">
+                      {site.email.display}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="label">Adresse</dt>
+                  <dd className="mt-2 text-muted">
+                    <address className="not-italic">
+                      {site.name}
+                      <br />
+                      {site.address.street}
+                      <br />
+                      {site.address.postalCode} {site.address.city}
+                    </address>
+                  </dd>
+                </div>
+              </dl>
 
-            <div className="mt-12 border-t border-line pt-10">
-              <h2 className="h-sub">Diese Angaben helfen weiter</h2>
-              <ul className="mt-6 space-y-3 text-muted">
-                {hints.map((item) => (
-                  <li key={item} className="border-b border-line py-3 last:border-b-0">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Placeholder className="mt-8">
-                Telefonische Erreichbarkeit (Tage und Uhrzeiten) wird ergänzt, sobald bestätigt.
-              </Placeholder>
+              <div className="mt-10 border-t border-line pt-8">
+                <h2 className="h-sub">Diese Angaben helfen weiter</h2>
+                <ul className="mt-5 space-y-3 text-muted">
+                  {hints.map((item) => (
+                    <li key={item} className="border-b border-line py-3 last:border-b-0">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Placeholder className="mt-8">
+                  Telefonische Erreichbarkeit (Tage und Uhrzeiten) wird ergänzt, sobald bestätigt.
+                </Placeholder>
+              </div>
             </div>
-          </div>
 
-          <div className="col-span-12 lg:col-span-6 lg:col-start-7" data-reveal style={{ "--reveal-delay": "80ms" } as React.CSSProperties}>
-            <ContactForm />
+            <div>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

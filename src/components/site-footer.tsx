@@ -5,7 +5,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-line">
+    <footer className="border-t border-line bg-paper">
       <div className="container-site flex flex-col gap-4 py-8 text-[0.875rem] text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {year} {site.name}

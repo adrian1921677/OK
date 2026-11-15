@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="border-b border-line">
+    <section className="section-soft">
       <div className="container-site max-w-2xl py-20 lg:py-28">
         <p className="label">404</p>
         <h1 className="h-page mt-4">Diese Seite gibt es nicht.</h1>
@@ -21,8 +21,8 @@ export default function NotFound() {
           .
         </p>
         <p className="mt-10">
-          <Link href="/" className="text-link-accent">
-            Zur Startseite →
+          <Link href="/" className="btn-primary">
+            Zur Startseite
           </Link>
         </p>
       </div>

@@ -23,7 +23,7 @@ export default function DatenschutzPage() {
     <>
       <PageHero label="Rechtliches" title="Datenschutzerklärung" />
 
-      <section className="border-b border-line">
+      <section className="bg-paper">
         <div className="container-site py-14 lg:py-20">
           <div className="prose-legal max-w-3xl">
             <Placeholder>

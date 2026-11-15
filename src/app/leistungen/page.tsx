@@ -16,11 +16,11 @@ export default function LeistungenPage() {
     <>
       <PageHero
         label="Leistungen"
-        title="Reinigung mit ruhiger Systematik."
-        lead="Drei klar umrissene Leistungen für Hausverwaltungen, Wohnungsgesellschaften sowie Büros und Praxen."
+        title="Reinigung mit klarer Struktur."
+        lead="Drei Schwerpunkte für Hausverwaltungen, Wohnungsgesellschaften sowie Büros und Praxen – streifenfrei und planbar."
       />
 
-      <nav aria-label="Leistungen im Überblick" className="border-b border-line">
+      <nav aria-label="Leistungen im Überblick" className="border-b border-line bg-paper">
         <ul className="container-site flex flex-wrap gap-x-8 gap-y-3 py-6 text-[0.9375rem]">
           {services.map((service) => (
             <li key={service.slug}>
@@ -37,11 +37,11 @@ export default function LeistungenPage() {
           key={service.slug}
           id={service.slug}
           aria-labelledby={`${service.slug}-titel`}
-          className="border-b border-line"
+          className={index % 2 === 1 ? "section-ice" : "bg-paper"}
         >
-          <div className="container-site grid-12 items-start gap-y-10 py-16 sm:py-20 lg:py-28">
+          <div className="container-site grid-12 items-center gap-y-10 py-16 sm:py-20 lg:py-28">
             <div className={`col-span-12 lg:col-span-5 ${index % 2 === 1 ? "lg:col-start-8 lg:order-2" : ""}`}>
-              <div className="media aspect-[4/3]" data-reveal-image>
+              <div className="media aspect-[4/3] shadow-[0_16px_36px_rgba(47,143,216,0.1)]" data-reveal-image>
                 <Picture
                   src={service.image}
                   alt={service.imageAlt}
@@ -58,8 +58,7 @@ export default function LeistungenPage() {
               className={`col-span-12 lg:col-span-6 ${index % 2 === 1 ? "lg:col-start-1 lg:order-1" : "lg:col-start-7"}`}
               data-reveal
             >
-              <p className="label">{service.number}</p>
-              <h2 id={`${service.slug}-titel`} className="h-section mt-4">
+              <h2 id={`${service.slug}-titel`} className="h-section">
                 {service.title}
               </h2>
               <p className="mt-5 max-w-[34rem] text-muted">{service.summary}</p>
@@ -80,22 +79,21 @@ export default function LeistungenPage() {
         </section>
       ))}
 
-      <section className="border-b border-line">
-        <div className="container-site grid-12 py-16 sm:py-20 lg:py-28">
-          <div className="col-span-12 lg:col-span-7" data-reveal>
+      <section className="section-soft">
+        <div className="container-site py-16 sm:py-20 lg:py-28">
+          <div className="glass glass-sheen max-w-[40rem] p-7 sm:p-9" data-reveal data-sheen="on">
             <h2 className="h-section max-w-[16ch]">Passende Reinigung für Ihr Objekt.</h2>
             <p className="lead mt-5 max-w-[32rem]">
               Beschreiben Sie kurz Objekt und Bedarf. Wir melden uns mit einem klaren, unverbindlichen Angebot.
             </p>
-            <p className="mt-8">
-              <Link href="/kontakt" className="text-link-accent">
-                Angebot anfragen →
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/kontakt" className="btn-primary">
+                Angebot anfragen
               </Link>
-              <span className="mx-4 text-line">|</span>
-              <a href={site.phone.href} className="text-link">
+              <a href={site.phone.href} className="btn-secondary">
                 {site.phone.display}
               </a>
-            </p>
+            </div>
           </div>
         </div>
       </section>

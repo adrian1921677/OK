@@ -13,7 +13,7 @@ export const site = {
   displayDomain: "gebäudereinigung-großräschen.de",
   tagline: "Gebäudereinigung im Lausitzer Seenland",
   description:
-    "Gebäudereinigung Kienle aus Großräschen: Fenster-, Treppenhaus- und Büroreinigung für Hausverwaltungen und Unternehmen im Lausitzer Seenland.",
+    "Gebäudereinigung Kienle aus Großräschen: streifenfreie Fenster-, Treppenhaus- und Büroreinigung für Hausverwaltungen und Unternehmen im Lausitzer Seenland.",
   address: {
     street: "Seestraße 7",
     postalCode: "01983",
@@ -54,7 +54,6 @@ export const legalNavigation = [
 
 export type Service = {
   slug: string;
-  number: string;
   title: string;
   summary: string;
   description: string[];
@@ -66,33 +65,30 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "fensterreinigung",
-    number: "01",
     title: "Fensterreinigung",
-    summary: "Streifenfreie Glasflächen innen und außen, abgestimmt auf Ihr Objekt.",
+    summary: "Streifenfreie Glasflächen innen und außen – klar, hell, verlässlich.",
     description: [
       "Saubere Fenster prägen den Eindruck eines Gebäudes. Wir reinigen Glasflächen streifenfrei und sorgfältig – innen wie außen.",
       "Ob einzelne Fensterfront oder ganzes Objekt: Umfang und Rhythmus stimmen wir mit Ihnen ab und halten sie im Angebot fest.",
     ],
     points: ["Streifenfreie Glasflächen", "Reinigung innen und außen", "Planbare Intervalle"],
     image: "/images/service-fenster.jpg",
-    imageAlt: "Glasfassade mit ruhiger Reflexion, Platzhalter für Fensterreinigung",
+    imageAlt: "Platzhalter service-fenster: Abzieher auf heller Glasfläche",
   },
   {
     slug: "treppenhausreinigung",
-    number: "02",
     title: "Treppenhausreinigung",
-    summary: "Gepflegte Zugänge und Etagen – diskret, regelmäßig, verlässlich.",
+    summary: "Helle Zugänge und Etagen – diskret, regelmäßig, gut erreichbar.",
     description: [
       "Das Treppenhaus ist der erste Eindruck für Bewohner und Besucher. Wir sorgen dafür, dass dieser Eindruck stimmt – auf jeder Etage.",
       "Feste Ansprechpartner und planbare Einsätze halten die Reinigung verlässlich, ohne dass Sie sich darum kümmern müssen.",
     ],
     points: ["Alle Etagen und Zugänge", "Regelmäßige, planbare Einsätze", "Feste Ansprechpartner"],
     image: "/images/service-treppenhaus.jpg",
-    imageAlt: "Ruhiges Treppenhaus mit Tageslicht, Platzhalter für Treppenhausreinigung",
+    imageAlt: "Platzhalter service-treppenhaus: helles Treppenhaus mit Tageslicht",
   },
   {
     slug: "bueroreinigung",
-    number: "03",
     title: "Büroreinigung",
     summary: "Saubere Arbeitsräume für Büros und Praxen, angepasst an Ihren Alltag.",
     description: [
@@ -101,7 +97,7 @@ export const services: Service[] = [
     ],
     points: ["Büros und Praxen", "Flexible Einsatzzeiten", "Konstante Qualität"],
     image: "/images/service-buero.jpg",
-    imageAlt: "Heller Bürokorridor mit Glas, Platzhalter für Büroreinigung",
+    imageAlt: "Platzhalter service-buero: heller Büroraum mit Glas",
   },
 ];
 
@@ -124,27 +120,33 @@ export const serviceArea = {
 
 export const galleryPlaceholders = [
   {
-    src: "/images/strip-fassade.jpg",
-    alt: "Architekturfassade mit Glas und Beton",
-    caption: "Fassade",
+    src: "/images/referenz-fenster.jpg",
+    alt: "Platzhalter referenz-fenster: helle Glasfassade mit Himmel",
+    caption: "Fenster",
     span: "wide" as const,
   },
   {
-    src: "/images/strip-treppenhaus.jpg",
-    alt: "Treppenhaus mit natürlichem Licht",
+    src: "/images/referenz-treppenhaus.jpg",
+    alt: "Platzhalter referenz-treppenhaus: helles Treppenhaus",
     caption: "Treppenhaus",
     span: "tall" as const,
   },
   {
-    src: "/images/strip-buero.jpg",
-    alt: "Büroinnenraum mit Glasflächen",
+    src: "/images/referenz-buero.jpg",
+    alt: "Platzhalter referenz-buero: heller Büroraum",
     caption: "Büro",
     span: "normal" as const,
   },
 ];
 
+export const aboutFacts = [
+  { label: "Standort", value: "Großräschen" },
+  { label: "Erfahrung", value: "Über 10 Jahre" },
+  { label: "Region", value: "Lausitzer Seenland" },
+] as const;
+
 export const OPEN_ITEMS = [
-  "Echte Architektur- und Objektfotos liefern (Platzhalter ersetzen)",
+  "Echte Glas- und Objektfotos liefern (Platzhalter ersetzen)",
   "Persönlichen Text und Porträt von Oliver Kienle liefern",
   "Erreichbarkeit / Zeiten bestätigen",
   "Datenschutzerklärung und Impressum rechtlich prüfen",

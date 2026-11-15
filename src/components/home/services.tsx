@@ -1,74 +1,45 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 import { Picture } from "@/components/picture";
 import { services } from "@/lib/site";
 
 export function HomeServices() {
-  const [active, setActive] = useState<string | null>(null);
-
   return (
-    <section className="border-b border-line" aria-labelledby="leistungen-titel">
+    <section className="bg-paper" aria-labelledby="leistungen-titel">
       <div className="container-site py-16 sm:py-20 lg:py-28">
-        <div className="grid-12 items-end gap-y-4">
-          <div className="col-span-12 lg:col-span-5">
-            <p className="label" data-reveal>
-              Leistungen
-            </p>
-            <h2 id="leistungen-titel" className="h-section mt-4 max-w-[14ch]" data-reveal>
-              Drei Schwerpunkte, klar geführt.
-            </h2>
-          </div>
+        <div className="max-w-[34rem]" data-reveal>
+          <p className="label">Leistungen</p>
+          <h2 id="leistungen-titel" className="h-section mt-3">
+            Drei Schwerpunkte, klar und hell.
+          </h2>
         </div>
 
-        <ul className="mt-14 border-t border-line">
-          {services.map((service) => {
-            const isActive = active === service.slug;
-            return (
-              <li key={service.slug} className="border-b border-line">
-                <Link
-                  href={`/leistungen#${service.slug}`}
-                  className="group relative grid-12 items-center gap-y-4 py-8 sm:py-10"
-                  onMouseEnter={() => setActive(service.slug)}
-                  onMouseLeave={() => setActive(null)}
-                  onFocus={() => setActive(service.slug)}
-                  onBlur={() => setActive(null)}
-                  data-reveal
-                >
-                  <span className="col-span-2 label text-muted/80 sm:col-span-1">{service.number}</span>
-                  <div className="col-span-9 sm:col-span-7 lg:col-span-6">
+        <ul className="mt-12 grid gap-5 md:grid-cols-3">
+          {services.map((service, index) => (
+            <li key={service.slug} data-reveal style={{ "--reveal-delay": `${index * 80}ms` } as React.CSSProperties}>
+              <Link
+                href={`/leistungen#${service.slug}`}
+                className="group relative block overflow-hidden rounded-[8px]"
+              >
+                <div className="media aspect-[4/5]">
+                  <Picture
+                    src={service.image}
+                    alt={service.imageAlt}
+                    width={1400}
+                    height={1750}
+                    sizes="(min-width: 768px) 30vw, 100vw"
+                    className="absolute inset-0 block h-full w-full"
+                    imgClassName="h-full w-full object-cover transition duration-500 ease-out group-hover:brightness-110 group-hover:saturate-110"
+                  />
+                </div>
+                <div className="absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
+                  <div className="glass glass-sheen rounded-xl p-4 transition duration-500 group-hover:bg-white/75">
                     <h3 className="h-sub">{service.title}</h3>
-                    <p className="mt-2 max-w-[34rem] text-[0.975rem] text-muted sm:text-[1.0625rem]">{service.summary}</p>
+                    <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">{service.summary}</p>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    className="col-span-1 col-start-12 justify-self-end text-accent opacity-70 transition-opacity group-hover:opacity-100"
-                  >
-                    →
-                  </span>
-
-                  <div
-                    className={`pointer-events-none absolute right-0 top-1/2 hidden w-[15rem] -translate-y-1/2 overflow-hidden transition-opacity duration-500 lg:block ${
-                      isActive ? "opacity-100" : "opacity-0"
-                    }`}
-                    aria-hidden="true"
-                  >
-                    <div className="media aspect-[4/3]">
-                      <Picture
-                        src={service.image}
-                        alt=""
-                        width={560}
-                        height={420}
-                        sizes="15rem"
-                        className="absolute inset-0 block h-full w-full"
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

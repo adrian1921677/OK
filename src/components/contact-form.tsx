@@ -33,7 +33,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8" noValidate>
+    <form onSubmit={onSubmit} className="space-y-5" noValidate>
       <div>
         <label htmlFor="name" className="label">
           Name
@@ -73,8 +73,8 @@ export function ContactForm() {
           gelesen und willige in die Verarbeitung meiner Angaben zur Bearbeitung der Anfrage ein.
         </span>
       </label>
-      <button type="submit" className="text-link-accent text-[1.0625rem]">
-        Angebot anfragen →
+      <button type="submit" className="btn-primary">
+        Angebot anfragen
       </button>
       {sent ? (
         <p className="text-[0.9375rem] text-muted">
