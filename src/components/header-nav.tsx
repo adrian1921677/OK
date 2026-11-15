@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { navigation, site } from "@/lib/site";
+import { Wordmark } from "./wordmark";
 
 export function HeaderNav() {
   const pathname = usePathname();
@@ -29,39 +30,50 @@ export function HeaderNav() {
 
   return (
     <>
-      <nav aria-label="Hauptnavigation" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
-        {navigation.map((item) => {
-          const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-[0.9375rem] tracking-[-0.01em] transition-colors hover:text-accent ${active ? "text-accent" : "text-ink"}`}
-              aria-current={active ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
+      {/* Glass pill only — overflow:hidden stays on .glass; menu is a sibling below */}
+      <div
+        className="glass glass-nav glass-sheen relative flex h-[3.75rem] items-center justify-between gap-3 px-3 shadow-[0_8px_30px_rgba(47,143,216,0.08)] sm:h-[4.25rem] sm:gap-4 sm:px-5"
+        data-sheen="on"
+      >
+        <Wordmark />
 
-      <div className="flex items-center gap-3">
-        <a href={site.phone.href} className="btn-phone hidden xs:inline-flex sm:inline-flex">
-          {site.phone.display}
-        </a>
-        <button
-          type="button"
-          className="rounded-full px-3 py-2 text-[0.875rem] font-medium text-ink lg:hidden"
-          aria-expanded={open}
-          aria-controls={panelId}
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? "Schließen" : "Menü"}
-        </button>
+        <nav aria-label="Hauptnavigation" className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 lg:flex">
+          {navigation.map((item) => {
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-[0.9375rem] tracking-[-0.01em] transition-colors hover:text-accent ${active ? "text-accent" : "text-ink"}`}
+                aria-current={active ? "page" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a href={site.phone.href} className="btn-phone shrink-0">
+            {site.phone.display}
+          </a>
+          <button
+            type="button"
+            className="rounded-full px-3 py-2 text-[0.875rem] font-medium text-ink lg:hidden"
+            aria-expanded={open}
+            aria-controls={panelId}
+            onClick={() => setOpen((value) => !value)}
+          >
+            {open ? "Schließen" : "Menü"}
+          </button>
+        </div>
       </div>
 
       {open ? (
-        <div id={panelId} className="absolute inset-x-3 top-[calc(100%+0.5rem)] z-50 lg:hidden sm:inset-x-4">
+        <div
+          id={panelId}
+          className="absolute inset-x-0 top-[calc(100%+0.5rem)] z-50 lg:hidden"
+        >
           <div className="glass glass-sheen rounded-2xl p-5 shadow-[0_16px_40px_rgba(47,143,216,0.12)]" data-sheen="on">
             <nav aria-label="Mobile Navigation" className="flex flex-col gap-1">
               {navigation.map((item) => {
@@ -77,7 +89,7 @@ export function HeaderNav() {
                   </Link>
                 );
               })}
-              <a href={site.phone.href} className="btn-phone mt-3 w-full xs:hidden">
+              <a href={site.phone.href} className="btn-phone mt-3 w-full">
                 {site.phone.display}
               </a>
             </nav>
