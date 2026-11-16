@@ -259,19 +259,33 @@
   }
 
   /* Anruf-Button im Kopf: dunkle Pille, runder Hörer, der sachte klingelt */
+  /* Anruf-Button: dunkle Glasfläche, um deren Rand ein Licht läuft; beim Überfahren füllt das Hörer-Feld die ganze Pille */
   .btn-call {
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
     height: 2.75rem;
-    padding: 0.25rem;
+    padding: 0.1875rem;
+    border: 1.5px solid transparent;
     border-radius: 999px;
-    background: linear-gradient(110deg, var(--color-deep) 0% 42%, #1d5d72 50%, var(--color-deep) 58% 100%) 100% 0 / 260% 100%;
+    background:
+      linear-gradient(160deg, #123c4b, var(--color-deep) 60%) padding-box,
+      conic-gradient(
+          from var(--call-angle),
+          #1f5f75 0deg 200deg,
+          #7fd6ee 262deg,
+          #ffffff 285deg,
+          #7fd6ee 300deg,
+          #1f5f75 340deg 360deg
+        )
+        border-box;
     color: #ffffff;
     text-decoration: none;
+    box-shadow: 0 10px 24px -14px rgba(12, 46, 58, 0.75);
     transition:
-      background-position 0.8s var(--ease-out-soft),
       transform 0.25s var(--ease-out-soft),
       box-shadow 0.25s var(--ease-out-soft);
   }
@@ -280,13 +294,30 @@
       padding-right: 1.1rem;
     }
   }
+  /* Füllung, die aus dem Hörer-Feld herauswächst */
+  .btn-call::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 0.1875rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-top: -1.125rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    transition: transform 0.55s var(--ease-out-soft);
+  }
+  .btn-call:hover::before,
+  .btn-call:focus-visible::before {
+    transform: scale(10);
+  }
   .btn-call:hover {
-    background-position: 0 0;
     transform: translateY(-1px);
-    box-shadow: 0 12px 26px -12px rgba(12, 46, 58, 0.6);
+    box-shadow: 0 16px 30px -14px rgba(15, 110, 140, 0.8);
   }
   .btn-call:active {
-    transform: translateY(1px);
+    transform: translateY(1px) scale(0.98);
   }
   .btn-call-icon {
     display: grid;
@@ -294,10 +325,12 @@
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 999px;
-    background: var(--color-accent);
-    transition: background-color 0.25s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
-  .btn-call:hover .btn-call-icon {
+  .btn-call:hover .btn-call-icon,
+  .btn-call:focus-visible .btn-call-icon {
     background: #ffffff;
     color: var(--color-accent);
   }
@@ -489,26 +522,37 @@
   }
 
   /* Anruf-Button: Ring breitet sich aus, der Hörer klingelt kurz – alle 3,2 s */
+  .btn-call {
+    animation: call-orbit 4.5s linear infinite;
+  }
+  /* Wischkante: ein Lichtstreifen zieht alle paar Sekunden über die Fläche */
   .btn-call::after {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: inherit;
     pointer-events: none;
-    animation: call-pulse 3.2s ease-out infinite;
+    background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.3) 50%, transparent 62%);
+    transform: translateX(-110%);
+    animation: call-sheen 4.5s var(--ease-out-soft) infinite;
   }
   .btn-call-icon svg {
     transform-origin: 50% 60%;
     animation: call-ring 3.2s ease-in-out infinite;
   }
 
-  @keyframes call-pulse {
+  @keyframes call-orbit {
+    to {
+      --call-angle: 360deg;
+    }
+  }
+
+  @keyframes call-sheen {
     0%,
-    55% {
-      box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-accent) 45%, transparent);
+    60% {
+      transform: translateX(-110%);
     }
     100% {
-      box-shadow: 0 0 0 9px transparent;
+      transform: translateX(110%);
     }
   }
 
@@ -545,4 +589,10 @@
       opacity: 0;
     }
   }
+}
+
+@property --call-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
