@@ -35,7 +35,7 @@ export function HeaderNav() {
   return (
     <div className="relative">
       <div
-        className={`flex h-[3.75rem] items-center justify-between gap-3 rounded-full border bg-paper/85 pr-2 pl-5 backdrop-blur-md transition-[box-shadow,border-color] duration-300 sm:h-16 sm:pl-6 ${
+        className={`flex h-[3.75rem] items-center justify-between gap-3 rounded-full border bg-paper/85 pr-2 pl-3 backdrop-blur-md transition-[box-shadow,border-color] duration-300 sm:h-16 sm:pl-3.5 ${
           scrolled || open
             ? "border-line shadow-[0_14px_34px_-20px_rgba(12,46,58,0.4)]"
             : "border-line/70 shadow-none"
@@ -62,18 +62,21 @@ export function HeaderNav() {
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <a
-            href={site.phone.href}
-            className="btn-primary min-h-11 px-3 sm:px-5"
-            aria-label={`Anrufen: ${site.phone.display}`}
-          >
-            <svg className="h-[1.125rem] w-[1.125rem]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path
-                d="M8.05 3.5c.4-.4 1.05-.45 1.5-.12l2.1 1.55c.4.3.55.85.35 1.32l-.85 1.95c-.15.35-.1.75.15 1.05l2.45 2.45c.3.25.7.3 1.05.15l1.95-.85c.47-.2 1.02-.05 1.32.35l1.55 2.1c.33.45.28 1.1-.12 1.5l-1.2 1.2c-.55.55-1.3.8-2.05.7-1.85-.25-4.5-1.55-6.95-4-2.45-2.45-3.75-5.1-4-6.950-.1-.75.15-1.5.7-2.05l1.2-1.2Z"
-                fill="currentColor"
-              />
-            </svg>
-            <span className="hidden sm:inline">{site.phone.display}</span>
+          <a href={site.phone.href} className="btn-call" aria-label={`Jetzt anrufen: ${site.phone.display}`}>
+            <span className="btn-call-icon">
+              <svg className="h-[1.05rem] w-[1.05rem]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M8.05 3.5c.4-.4 1.05-.45 1.5-.12l2.1 1.55c.4.3.55.85.35 1.32l-.85 1.95c-.15.35-.1.75.15 1.05l2.45 2.45c.3.25.7.3 1.05.15l1.95-.85c.47-.2 1.02-.05 1.32.35l1.55 2.1c.33.45.28 1.1-.12 1.5l-1.2 1.2c-.55.55-1.3.8-2.05.7-1.85-.25-4.5-1.55-6.95-4-2.45-2.45-3.75-5.1-4-6.950-.1-.75.15-1.5.7-2.05l1.2-1.2Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span className="hidden flex-col pr-1 sm:flex">
+              <span className="text-[0.625rem] leading-none font-medium tracking-[0.04em] text-white/65">
+                Jetzt anrufen
+              </span>
+              <span className="mt-1 text-[0.9375rem] leading-none font-medium tabular-nums">{site.phone.display}</span>
+            </span>
           </a>
           <button
             type="button"

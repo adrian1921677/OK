@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { legalNavigation, navigation, site } from "@/lib/site";
+import { Wordmark } from "./wordmark";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -9,8 +10,8 @@ export function SiteFooter() {
       <div className="container-site py-10 lg:py-12">
         <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-script text-[1.9rem] text-ink">{site.owner}</p>
-            <p className="mt-3 max-w-[22rem] text-[0.9375rem] text-muted">
+            <Wordmark className="w-fit" />
+            <p className="mt-4 max-w-[22rem] text-[0.9375rem] text-muted">
               Büroreinigung, Treppenhäuser, Fenster und mehr – wir bringen Sauberkeit mit System in Ihre Immobilie.
             </p>
           </div>
