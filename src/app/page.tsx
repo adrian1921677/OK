@@ -1,8 +1,7 @@
 import { HomeAbout } from "@/components/home/about";
-import { HomeBeforeAfter } from "@/components/home/before-after";
 import { HomeContact } from "@/components/home/contact";
-import { HomeGlassWipe } from "@/components/home/glass-wipe";
 import { HomeHero } from "@/components/home/hero";
+import { HomeProcess } from "@/components/home/process";
 import { HomeServiceArea } from "@/components/home/service-area";
 import { HomeServices } from "@/components/home/services";
 import { pageMetadata } from "@/lib/metadata";
@@ -19,10 +18,9 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
-      <HomeGlassWipe />
       <HomeServices />
       <HomeAbout />
-      <HomeBeforeAfter />
+      <HomeProcess />
       <HomeServiceArea />
       <HomeContact />
     </>

@@ -20,7 +20,7 @@ export default function ImpressumPage() {
       <PageHero label="Rechtliches" title="Impressum" />
 
       <section className="bg-paper">
-        <div className="container-site py-14 lg:py-20">
+        <div className="container-site border-t border-line pt-10 pb-14 lg:pb-20">
           <div className="prose-legal max-w-3xl">
             <Placeholder>
               Dieser Text stammt unverändert von der bisherigen Website und ist vor dem Livegang rechtlich zu prüfen.

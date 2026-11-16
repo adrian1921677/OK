@@ -33,37 +33,39 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+    <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="label">
+        <label htmlFor="name" className="text-[0.875rem] font-medium text-ink">
           Name
         </label>
-        <input id="name" name="name" type="text" required autoComplete="name" className="field mt-2" />
+        <input id="name" name="name" type="text" required autoComplete="name" className="field mt-1.5" />
       </div>
+      <div className="grid gap-4 sm:grid-cols-2">
       <div>
-        <label htmlFor="email" className="label">
+        <label htmlFor="email" className="text-[0.875rem] font-medium text-ink">
           E-Mail
         </label>
-        <input id="email" name="email" type="email" required autoComplete="email" className="field mt-2" />
+        <input id="email" name="email" type="email" required autoComplete="email" className="field mt-1.5" />
       </div>
       <div>
-        <label htmlFor="phone" className="label">
-          Telefon
+        <label htmlFor="phone" className="text-[0.875rem] font-medium text-ink">
+          Telefon <span className="font-normal text-muted">(optional)</span>
         </label>
-        <input id="phone" name="phone" type="tel" autoComplete="tel" className="field mt-2" />
+        <input id="phone" name="phone" type="tel" autoComplete="tel" className="field mt-1.5" />
+      </div>
       </div>
       <div>
-        <label htmlFor="message" className="label">
-          Nachricht
+        <label htmlFor="message" className="text-[0.875rem] font-medium text-ink">
+          Ihr Anliegen
         </label>
-        <textarea id="message" name="message" required className="field mt-2" />
+        <textarea id="message" name="message" required className="field mt-1.5" />
       </div>
-      <label className="flex items-start gap-3 text-[0.9375rem] text-muted">
+      <label className="flex items-start gap-3 text-[0.875rem] leading-relaxed text-muted">
         <input
           type="checkbox"
           name="privacy"
           required
-          className="mt-1 h-4 w-4 accent-[var(--color-accent)]"
+          className="mt-1 h-4 w-4 shrink-0 accent-[var(--color-accent)]"
         />
         <span>
           Ich habe die{" "}
@@ -73,11 +75,11 @@ export function ContactForm() {
           gelesen und willige in die Verarbeitung meiner Angaben zur Bearbeitung der Anfrage ein.
         </span>
       </label>
-      <button type="submit" className="btn-primary">
-        Angebot anfragen
+      <button type="submit" className="btn-primary w-full sm:w-auto">
+        Anfrage senden
       </button>
       {sent ? (
-        <p className="text-[0.9375rem] text-muted">
+        <p className="rounded-xl bg-mist px-4 py-3 text-[0.9375rem] text-muted" role="status">
           Ihr E-Mail-Programm sollte sich geöffnet haben. Alternativ schreiben Sie direkt an{" "}
           <a href={site.email.href} className="text-link-accent">
             {site.email.display}

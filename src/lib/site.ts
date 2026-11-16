@@ -103,20 +103,60 @@ export const services: Service[] = [
 
 export const clients = ["Hausverwaltungen", "Wohnungsgesellschaften", "Büros und Praxen"] as const;
 
+/** Versatz in Kilometern ab Großräschen (x nach Osten, y nach Süden) – Grundlage der Karte. */
+export type Town = { name: string; x: number; y: number; km: number };
+
 export const serviceArea = {
   base: "Großräschen",
   region: "Lausitzer Seenland",
   towns: [
-    "Großräschen",
-    "Senftenberg",
-    "Lauchhammer",
-    "Schwarzheide",
-    "Cottbus",
-    "Hoyerswerda",
-    "Spremberg",
-    "Calau",
-  ] as string[],
+    { name: "Großräschen", x: 0, y: 0, km: 0 },
+    { name: "Senftenberg", x: -0.8, y: 7, km: 7 },
+    { name: "Schwarzheide", x: -10.8, y: 12.4, km: 16 },
+    { name: "Calau", x: -4.3, y: -17.6, km: 18 },
+    { name: "Lauchhammer", x: -17, y: 9.9, km: 20 },
+    { name: "Hoyerswerda", x: 15.4, y: 16.7, km: 23 },
+    { name: "Spremberg", x: 25, y: 1.9, km: 25 },
+    { name: "Cottbus", x: 22.1, y: -18.8, km: 29 },
+  ] as Town[],
 };
+
+/** Zusagen von der bisherigen Website übernommen. */
+export const promises = [
+  {
+    title: "Qualitätsgarantie",
+    text: "Reinigungsmittel und Verfahren auf höchstem Niveau.",
+    icon: "shield" as const,
+  },
+  {
+    title: "Professionelles Team",
+    text: "Geschult, pünktlich, freundlich – wir sorgen für den besten Eindruck.",
+    icon: "team" as const,
+  },
+  {
+    title: "Schnelle Angebote",
+    text: "In nur 24 Stunden – einfach und kostenlos.",
+    icon: "clock" as const,
+  },
+];
+
+export const processSteps = [
+  {
+    title: "Anfrage",
+    text: "Sie rufen an, schreiben per WhatsApp oder nutzen das Formular und schildern kurz Ihr Objekt.",
+  },
+  {
+    title: "Angebot in 24 Stunden",
+    text: "Sie erhalten ein klares Angebot mit Umfang und Rhythmus – kostenlos und unverbindlich.",
+  },
+  {
+    title: "Reinigung nach Plan",
+    text: "Wir reinigen zu den vereinbarten Terminen. Ihr Ansprechpartner bleibt derselbe.",
+  },
+];
+
+/** Angabe von der bisherigen Website: „Zufriedene Kunden geben unserem Erfolg recht!“ */
+export const satisfaction = 98;
 
 export const galleryPlaceholders = [
   {

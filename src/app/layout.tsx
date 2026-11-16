@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F7F5F0",
+  themeColor: "#FFFFFF",
 };
 
 const jsonLd = {
@@ -67,7 +67,7 @@ const jsonLd = {
   areaServed: [
     { "@type": "City", name: serviceArea.base },
     { "@type": "Place", name: serviceArea.region },
-    ...serviceArea.towns.map((name) => ({ "@type": "City", name })),
+    ...serviceArea.towns.slice(1).map(({ name }) => ({ "@type": "City", name })),
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",

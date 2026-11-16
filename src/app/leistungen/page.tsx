@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { Picture } from "@/components/picture";
+import { CtaPanel } from "@/components/cta-panel";
 import { PageHero } from "@/components/page-hero";
+import { Picture } from "@/components/picture";
 import { pageMetadata } from "@/lib/metadata";
-import { services, site } from "@/lib/site";
+import { clients, services } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Leistungen",
@@ -16,93 +16,84 @@ export default function LeistungenPage() {
     <>
       <PageHero
         label="Leistungen"
-        title="Reinigung mit klarer Struktur."
-        lead="Drei Schwerpunkte für Hausverwaltungen, Wohnungsgesellschaften sowie Büros und Praxen – streifenfrei und planbar."
+        title="Wir reinigen mit System."
+        lead="Ob Büro, Praxis oder Treppenhaus – wir sorgen für saubere Räume, in denen sich alle wohlfühlen. Unsere Reinigungsdienste passen sich flexibel Ihrem Alltag an und überzeugen durch konstante Qualität."
       />
 
-      <nav aria-label="Leistungen im Überblick" className="border-b border-line bg-paper">
-        <ul className="container-site flex flex-wrap gap-x-8 gap-y-3 py-6 text-[0.9375rem]">
-          {services.map((service) => (
-            <li key={service.slug}>
-              <a href={`#${service.slug}`} className="text-link">
-                {service.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="container-site">
+        <nav aria-label="Leistungen im Überblick" className="load-fade" style={{ "--delay": "550ms" } as React.CSSProperties}>
+          <ul className="flex flex-wrap gap-2">
+            {services.map((service) => (
+              <li key={service.slug}>
+                <a href={`#${service.slug}`} className="btn-secondary min-h-10 px-4 text-[0.875rem]">
+                  {service.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
 
-      {services.map((service, index) => (
-        <section
-          key={service.slug}
-          id={service.slug}
-          aria-labelledby={`${service.slug}-titel`}
-          className={index % 2 === 1 ? "section-surface" : "bg-paper"}
-        >
-          <div className="container-site grid-12 items-center gap-y-10 py-20 sm:py-24 lg:py-32">
-            <div className={`col-span-12 lg:col-span-5 ${index % 2 === 1 ? "lg:col-start-8 lg:order-2" : ""}`}>
-              <div className="media aspect-[4/3]" data-reveal-image>
-                <Picture
-                  src={service.image}
-                  alt={service.imageAlt}
-                  width={1400}
-                  height={1050}
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="absolute inset-0 block h-full w-full"
-                  priority={index === 0}
-                />
-              </div>
+      <div className="container-site section space-y-14 lg:space-y-20">
+        {services.map((service, index) => (
+          <section
+            key={service.slug}
+            id={service.slug}
+            aria-labelledby={`${service.slug}-titel`}
+            className="grid items-center gap-x-14 gap-y-7 lg:grid-cols-2"
+          >
+            <div className={`media aspect-[4/3] ${index % 2 === 1 ? "lg:order-2" : ""}`} data-reveal-image>
+              <Picture
+                src={service.image}
+                alt={service.imageAlt}
+                width={1400}
+                height={1050}
+                sizes="(min-width: 1024px) 32rem, 100vw"
+                className="absolute inset-0 block h-full w-full"
+                priority={index === 0}
+              />
             </div>
 
-            <div
-              className={`col-span-12 lg:col-span-6 ${index % 2 === 1 ? "lg:col-start-1 lg:order-1" : "lg:col-start-7"}`}
-              data-reveal
-            >
+            <div data-reveal>
               <h2 id={`${service.slug}-titel`} className="h-section">
                 {service.title}
               </h2>
-              <p className="mt-5 max-w-[34rem] text-muted">{service.summary}</p>
               {service.description.map((paragraph) => (
-                <p key={paragraph} className="mt-4 max-w-[34rem] text-muted">
+                <p key={paragraph} className="mt-4 max-w-[34rem] text-muted first-of-type:mt-5">
                   {paragraph}
                 </p>
               ))}
-              <ul className="mt-8 space-y-3 border-t border-line pt-6 text-[1.0625rem] text-ink">
+              <ul className="check-list mt-6 space-y-2.5 text-ink">
                 {service.points.map((point) => (
-                  <li key={point} className="border-b border-line py-3 last:border-b-0">
-                    {point}
-                  </li>
+                  <li key={point}>{point}</li>
                 ))}
               </ul>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        ))}
+      </div>
 
-      <section className="section-ink">
-        <div className="container-site py-20 sm:py-24 lg:py-32">
-          <div className="max-w-[40rem]" data-reveal>
-            <h2 className="h-section max-w-[16ch] text-cream">Passende Reinigung für Ihr Objekt.</h2>
-            <p className="mt-5 max-w-[32rem] text-cream/70">
-              Beschreiben Sie kurz Objekt und Bedarf. Wir melden uns mit einem klaren, unverbindlichen Angebot.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/kontakt"
-                className="inline-flex min-h-12 items-center justify-center bg-cream px-6 text-[0.9375rem] font-medium text-ink transition-opacity hover:opacity-85"
-              >
-                Angebot anfragen
-              </Link>
-              <a
-                href={site.phone.href}
-                className="inline-flex min-h-12 items-center justify-center border border-cream/50 px-6 text-[0.9375rem] font-medium text-cream transition-colors hover:bg-cream/10"
-              >
-                {site.phone.display}
-              </a>
-            </div>
+      <section className="section pt-0 lg:pt-0" aria-labelledby="kunden-titel">
+        <div className="container-site">
+          <div className="panel flex flex-wrap items-center justify-between gap-x-12 gap-y-5 p-6 sm:p-8" data-reveal>
+            <h2 id="kunden-titel" className="h-sub">
+              Für wen wir arbeiten
+            </h2>
+            <ul className="flex flex-wrap gap-2">
+              {clients.map((client) => (
+                <li key={client} className="rounded-full bg-paper px-4 py-2 text-[0.9375rem] text-ink">
+                  {client}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
+
+      <CtaPanel
+        title="Passende Reinigung für Ihr Objekt."
+        text="Beschreiben Sie kurz Objekt und Bedarf. Ihr Angebot erhalten Sie innerhalb von 24 Stunden – kostenlos und unverbindlich."
+      />
     </>
   );
 }

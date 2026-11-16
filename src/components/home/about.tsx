@@ -1,41 +1,54 @@
+import Link from "next/link";
 import { Picture } from "@/components/picture";
 import { aboutFacts, site } from "@/lib/site";
 
 export function HomeAbout() {
   return (
-    <section className="section-cream" aria-labelledby="ueber-titel">
-      <div className="container-site grid-12 items-center gap-y-12 py-20 sm:py-24 lg:py-32">
-        <div className="col-span-12 lg:col-span-6" data-reveal-image>
-          <div className="media aspect-[4/5] max-w-[34rem]">
+    <section className="section pt-0 lg:pt-0" aria-labelledby="ueber-titel">
+      <div className="container-site">
+        <div className="panel grid items-center gap-x-12 gap-y-8 p-5 sm:p-8 lg:grid-cols-[0.8fr_1fr] lg:p-10">
+          <div className="media aspect-[4/3] lg:aspect-[4/5]" data-reveal-image>
             <Picture
               src="/images/ueber-uns-raum.jpg"
-              alt="Heller Innenraum mit großen Glasflächen und Tageslicht"
+              alt="Heller Besprechungsraum mit großen Glasflächen und Tageslicht"
               width={1200}
               height={1500}
-              sizes="(min-width: 1024px) 42vw, 100vw"
+              sizes="(min-width: 1024px) 26rem, 100vw"
               className="absolute inset-0 block h-full w-full"
             />
           </div>
-        </div>
 
-        <div className="col-span-12 lg:col-span-5 lg:col-start-8" data-reveal>
-          <p className="label">Über uns</p>
-          <h2 id="ueber-titel" className="h-section mt-4 max-w-[16ch]">
-            Familienbetrieb mit klarer Haltung.
-          </h2>
-          <p className="mt-6 text-muted">
-            {site.owner} führt die Gebäudereinigung Kienle persönlich – aus Großräschen, für Hausverwaltungen und
-            Unternehmen im Lausitzer Seenland. Kurze Wege, feste Ansprechpartner, Arbeit, die sich nicht aufdrängt,
-            sondern Räume einfach klarer wirken lässt.
-          </p>
-          <ul className="mt-10 space-y-5 border-t border-ink/15 pt-7">
-            {aboutFacts.map((fact) => (
-              <li key={fact.label} className="flex flex-wrap items-baseline justify-between gap-2">
-                <span className="label">{fact.label}</span>
-                <span className="font-display text-[1.25rem] tracking-[-0.01em] text-ink">{fact.value}</span>
-              </li>
-            ))}
-          </ul>
+          <div data-reveal>
+            <h2 id="ueber-titel" className="h-section max-w-[20ch]">
+              Ihr zuverlässiger Partner für Sauberkeit und Werterhalt.
+            </h2>
+            <p className="mt-5 max-w-[34rem] text-muted">
+              Bei Kienle Gebäudereinigung kümmern wir uns täglich um saubere Büros, gepflegte Treppenhäuser und
+              streifenfreie Fenster. Mit einem erfahrenen Team, modernen Reinigungsmitteln und einem klaren Anspruch an
+              Qualität sorgen wir für Sauberkeit, die bleibt – gründlich, pünktlich und zuverlässig.
+            </p>
+
+            <dl className="mt-7 grid grid-cols-3 gap-4 border-t border-ink/10 pt-6">
+              {aboutFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt className="label">{fact.label}</dt>
+                  <dd className="mt-1 font-display text-[1.2rem] leading-tight text-ink sm:text-[1.35rem]">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
+              <p>
+                <span className="font-script block text-[2.1rem] text-ink">{site.owner}</span>
+                <span className="label mt-1 block">Inhaber</span>
+              </p>
+              <Link href="/ueber-uns" className="btn-secondary">
+                Mehr über uns
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

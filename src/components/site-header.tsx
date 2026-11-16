@@ -2,7 +2,7 @@ import { HeaderNav } from "./header-nav";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/90 backdrop-blur-[10px]">
+    <header className="sticky top-0 z-40 pt-3 sm:pt-4">
       <div className="container-site">
         <HeaderNav />
       </div>

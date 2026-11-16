@@ -24,7 +24,7 @@ export default function DatenschutzPage() {
       <PageHero label="Rechtliches" title="Datenschutzerklärung" />
 
       <section className="bg-paper">
-        <div className="container-site py-14 lg:py-20">
+        <div className="container-site border-t border-line pt-10 pb-14 lg:pb-20">
           <div className="prose-legal max-w-3xl">
             <Placeholder>
               Diese Datenschutzerklärung stammt von der bisherigen Website (Stand 15. Juli 2025) und ist noch nicht an
