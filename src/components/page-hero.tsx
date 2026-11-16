@@ -25,7 +25,7 @@ export function PageHero({ label, title, lead }: PageHeroProps) {
           <RiseText text={title} />
         </h1>
         {lead ? (
-          <p className="load-fade lead mt-5 max-w-[38rem]" style={{ "--delay": "450ms" } as React.CSSProperties}>
+          <p className="load-fade lead mt-5 max-w-[38rem]" style={{ "--delay": "250ms" } as React.CSSProperties}>
             {lead}
           </p>
         ) : null}

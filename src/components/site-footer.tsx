@@ -12,7 +12,7 @@ export function SiteFooter() {
           <div>
             <Wordmark className="w-fit" />
             <p className="mt-4 max-w-[22rem] text-[0.9375rem] text-muted">
-              Büroreinigung, Treppenhäuser, Fenster und mehr – wir bringen Sauberkeit mit System in Ihre Immobilie.
+              Fenster-, Treppenhaus- und Büroreinigung in Großräschen und im Lausitzer Seenland.
             </p>
           </div>
 

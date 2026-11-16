@@ -43,7 +43,6 @@ export const site = {
 export const navigation = [
   { href: "/leistungen", label: "Leistungen" },
   { href: "/ueber-uns", label: "Über uns" },
-  { href: "/referenzen", label: "Referenzen" },
   { href: "/kontakt", label: "Kontakt" },
 ] as const;
 
@@ -121,25 +120,6 @@ export const serviceArea = {
   ] as Town[],
 };
 
-/** Zusagen von der bisherigen Website übernommen. */
-export const promises = [
-  {
-    title: "Qualitätsgarantie",
-    text: "Reinigungsmittel und Verfahren auf höchstem Niveau.",
-    icon: "shield" as const,
-  },
-  {
-    title: "Professionelles Team",
-    text: "Geschult, pünktlich, freundlich – wir sorgen für den besten Eindruck.",
-    icon: "team" as const,
-  },
-  {
-    title: "Schnelle Angebote",
-    text: "In nur 24 Stunden – einfach und kostenlos.",
-    icon: "clock" as const,
-  },
-];
-
 export const processSteps = [
   {
     title: "Anfrage",
@@ -154,9 +134,6 @@ export const processSteps = [
     text: "Wir reinigen zu den vereinbarten Terminen. Ihr Ansprechpartner bleibt derselbe.",
   },
 ];
-
-/** Angabe von der bisherigen Website: „Zufriedene Kunden geben unserem Erfolg recht!“ */
-export const satisfaction = 98;
 
 export const galleryPlaceholders = [
   {

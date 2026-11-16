@@ -1,5 +1,4 @@
 import { PageHero } from "@/components/page-hero";
-import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
@@ -11,8 +10,10 @@ export const metadata = pageMetadata({
 });
 
 /*
- * Der Text ist unverändert von der bisherigen Website übernommen
- * (abgerufen am 13.11.2026). Keine eigenen rechtlichen Formulierungen.
+ * Grundlage ist der Text der bisherigen Website (abgerufen am 13.11.2026).
+ * Angepasst: § 5 DDG statt „DGG“, § 18 Abs. 2 MStV statt „§ 55 Abs. 2 DGG“,
+ * Hinweis auf die 2025 eingestellte EU-Streitbeilegungsplattform entfernt.
+ * Rechtliche Prüfung steht noch aus.
  */
 export default function ImpressumPage() {
   return (
@@ -22,14 +23,7 @@ export default function ImpressumPage() {
       <section className="bg-paper">
         <div className="container-site border-t border-line pt-10 pb-14 lg:pb-20">
           <div className="prose-legal max-w-3xl">
-            <Placeholder>
-              Dieser Text stammt unverändert von der bisherigen Website und ist vor dem Livegang rechtlich zu prüfen.
-              Auffällig: Die Gesetzesangaben „§ 5 DGG“ und „§ 55 Abs. 2 DGG“ sind vermutlich nicht korrekt, die
-              E-Mail-Adresse weicht von der alten Startseite ab (dort yahoo.com), und die OS-Plattform der EU-Kommission
-              sollte auf Aktualität geprüft werden.
-            </Placeholder>
-
-            <h2>Angaben gemäß § 5 DGG</h2>
+            <h2>Angaben gemäß § 5 DDG</h2>
             <address>
               {site.name}
               <br />
@@ -52,7 +46,7 @@ export default function ImpressumPage() {
               Steuernummer: {site.taxNumber} ({site.taxOffice})
             </p>
 
-            <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 DGG</h2>
+            <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
             <address>
               {site.owner}
               <br />
@@ -60,14 +54,6 @@ export default function ImpressumPage() {
               <br />
               {site.address.postalCode} {site.address.city}
             </address>
-
-            <h2>Online-Streitbeilegung gemäß Art. 14 Abs. 1 ODR-VO</h2>
-            <p>
-              Die EU-Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:{" "}
-              <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
-                https://ec.europa.eu/consumers/odr
-              </a>
-            </p>
 
             <h2>Verbraucherschlichtung</h2>
             <p>Wir beteiligen uns nicht an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle.</p>

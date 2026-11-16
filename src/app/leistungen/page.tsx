@@ -16,8 +16,8 @@ export default function LeistungenPage() {
     <>
       <PageHero
         label="Leistungen"
-        title="Wir reinigen mit System."
-        lead="Ob Büro, Praxis oder Treppenhaus – wir sorgen für saubere Räume, in denen sich alle wohlfühlen. Unsere Reinigungsdienste passen sich flexibel Ihrem Alltag an und überzeugen durch konstante Qualität."
+        title="Fenster, Treppenhäuser, Büros."
+        lead="Drei Leistungen für Hausverwaltungen, Wohnungsgesellschaften, Büros und Praxen. Umfang und Rhythmus stimmen wir mit Ihnen ab und halten beides im Angebot fest."
       />
 
       <div className="container-site">

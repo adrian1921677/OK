@@ -7,6 +7,8 @@ type PictureProps = {
   height?: number;
   priority?: boolean;
   sizes?: string;
+  /** Vorhandene Breiten, größte = Originaldatei; kleinere liegen als name-<breite>.<ext> vor */
+  widths?: number[];
   reveal?: boolean;
   revealDelay?: string;
 };
@@ -24,10 +26,14 @@ export function Picture({
   height,
   priority = false,
   sizes = "100vw",
+  widths,
   reveal = false,
   revealDelay,
 }: PictureProps) {
   const base = src.replace(/\.(jpe?g|png|webp|avif)$/i, "");
+  const max = widths ? Math.max(...widths) : 0;
+  const set = (ext: string) =>
+    widths ? widths.map((w) => `${base}${w === max ? "" : `-${w}`}.${ext} ${w}w`).join(", ") : `${base}.${ext}`;
   const style = revealDelay ? ({ "--reveal-delay": revealDelay } as React.CSSProperties) : undefined;
 
   return (
@@ -36,11 +42,12 @@ export function Picture({
       {...(reveal ? { "data-reveal-image": true } : {})}
       style={style}
     >
-      <source srcSet={`${base}.avif`} type="image/avif" sizes={sizes} />
-      <source srcSet={`${base}.webp`} type="image/webp" sizes={sizes} />
+      <source srcSet={set("avif")} type="image/avif" sizes={sizes} />
+      <source srcSet={set("webp")} type="image/webp" sizes={sizes} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src.endsWith(".jpg") || src.endsWith(".jpeg") || src.endsWith(".png") ? src : `${base}.jpg`}
+        srcSet={widths ? set("jpg") : undefined}
         alt={alt}
         width={width}
         height={height}

@@ -11,8 +11,8 @@ export function HomeContact() {
               Sprechen wir über Ihr Objekt.
             </h2>
             <p className="mt-4 max-w-[26rem] text-white/70">
-              Schildern Sie kurz Objekt und Bedarf. Ihr Angebot erhalten Sie innerhalb von 24 Stunden – kostenlos und
-              unverbindlich.
+              Schildern Sie kurz Objekt und Bedarf, am Telefon, per WhatsApp oder im Formular. Das Angebot ist kostenlos
+              und unverbindlich.
             </p>
             <div className="mt-8 border-t border-white/15 pt-7">
               <ContactDetails tone="light" />

@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CountUp } from "@/components/count-up";
 import { Picture } from "@/components/picture";
-import { satisfaction } from "@/lib/site";
 
 const REST = 62;
 
@@ -47,6 +45,7 @@ export function HeroWipe() {
           width={1600}
           height={1000}
           sizes="(min-width: 1024px) 34rem, 100vw"
+          widths={[800, 1600]}
           className="absolute inset-0 block h-full w-full"
           imgClassName={imgClass}
         />
@@ -58,6 +57,7 @@ export function HeroWipe() {
             width={1600}
             height={1000}
             sizes="(min-width: 1024px) 34rem, 100vw"
+          widths={[800, 1600]}
             className="absolute inset-0 block h-full w-full"
             imgClassName={imgClass}
           />
@@ -102,21 +102,6 @@ export function HeroWipe() {
           onChange={(event) => setValue(Number(event.target.value))}
           className="absolute inset-0 z-20 h-full w-full cursor-ew-resize opacity-0"
         />
-      </div>
-
-      <div
-        className="load-fade absolute -bottom-5 left-4 z-30 flex items-center gap-3 rounded-2xl border border-line bg-paper py-3 pr-5 pl-4 shadow-[0_18px_40px_-18px_rgba(12,46,58,0.35)] sm:left-6 lg:-left-8"
-        style={{ "--delay": "1200ms" } as React.CSSProperties}
-      >
-        <p className="font-display text-[2.5rem] leading-none text-accent">
-          <CountUp to={satisfaction} delay={1300} />
-          <span className="text-[1.5rem]"> %</span>
-        </p>
-        <p className="text-[0.875rem] leading-snug text-muted">
-          zufriedene
-          <br />
-          Kunden
-        </p>
       </div>
     </div>
   );

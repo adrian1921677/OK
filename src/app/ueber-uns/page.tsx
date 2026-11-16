@@ -1,10 +1,8 @@
-import { CountUp } from "@/components/count-up";
 import { CtaPanel } from "@/components/cta-panel";
 import { PageHero } from "@/components/page-hero";
 import { Picture } from "@/components/picture";
-import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
-import { satisfaction, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Über uns",
@@ -34,7 +32,7 @@ export default function UeberUnsPage() {
       <PageHero
         label="Über uns"
         title="Inhabergeführt. Regional verwurzelt."
-        lead="Ihr zuverlässiger Partner für Sauberkeit und Werterhalt – seit über 10 Jahren."
+        lead="Gebäudereinigung aus Großräschen, seit über 10 Jahren. Ihr Ansprechpartner ist der Inhaber selbst."
       />
 
       <section className="pb-14 lg:pb-20">
@@ -51,49 +49,23 @@ export default function UeberUnsPage() {
                 priority
               />
             </div>
-            <div
-              className="load-fade absolute -bottom-5 right-4 flex items-center gap-3 rounded-2xl border border-line bg-paper py-3 pr-5 pl-4 shadow-[0_18px_40px_-18px_rgba(12,46,58,0.35)] sm:right-6 lg:-right-6"
-              style={{ "--delay": "700ms" } as React.CSSProperties}
-            >
-              <p className="font-display text-[2.5rem] leading-none text-accent">
-                <CountUp to={satisfaction} delay={800} />
-                <span className="text-[1.5rem]"> %</span>
-              </p>
-              <p className="text-[0.875rem] leading-snug text-muted">
-                zufriedene
-                <br />
-                Kunden
-              </p>
-            </div>
           </div>
 
           <div className="pt-4 lg:pt-2" data-reveal>
-            <h2 className="h-section max-w-[18ch]">Sauberkeit, die bleibt.</h2>
+            <h2 className="h-section max-w-[18ch]">Feste Termine, ein Ansprechpartner.</h2>
             <p className="mt-5 max-w-[34rem] text-muted">
-              Bei Kienle Gebäudereinigung kümmern wir uns täglich um saubere Büros, gepflegte Treppenhäuser und
-              streifenfreie Fenster. Mit einem erfahrenen Team, modernen Reinigungsmitteln und einem klaren Anspruch an
-              Qualität sorgen wir für Sauberkeit, die bleibt – gründlich, pünktlich und zuverlässig.
+              Wir reinigen Büros, Treppenhäuser und Fenster für Hausverwaltungen, Wohnungsgesellschaften, Büros und
+              Praxen. Umfang und Rhythmus stehen im Angebot, die Termine sind fest geplant.
             </p>
             <p className="mt-4 max-w-[34rem] text-muted">
               Sitz des Unternehmens ist die {site.address.street} in {site.address.city}. Ihr Ansprechpartner von der
               ersten Anfrage bis zur laufenden Reinigung ist {site.owner}.
             </p>
 
-            <ul className="check-list mt-6 space-y-2.5 text-ink">
-              <li>Erfahrenes, geschultes Team</li>
-              <li>Moderne Reinigungsmittel und Verfahren</li>
-              <li>Angebot innerhalb von 24 Stunden</li>
-            </ul>
-
             <p className="mt-8">
               <span className="font-script block text-[2.4rem] text-ink">{site.owner}</span>
               <span className="label mt-1 block">Inhaber, {site.name}</span>
             </p>
-
-            <Placeholder className="mt-8 max-w-[34rem]">
-              Persönliche Vorstellung von Herrn Kienle (Werdegang, Team, Haltung) und ein Porträt folgen, sobald sie
-              vorliegen.
-            </Placeholder>
           </div>
         </div>
       </section>

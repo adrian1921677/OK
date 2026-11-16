@@ -1,7 +1,6 @@
 import { CtaPanel } from "@/components/cta-panel";
 import { PageHero } from "@/components/page-hero";
 import { Picture } from "@/components/picture";
-import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
 import { galleryPlaceholders } from "@/lib/site";
 
@@ -10,6 +9,7 @@ export const metadata = pageMetadata({
   description:
     "Einblicke in die Arbeit der Gebäudereinigung Kienle: Objektbilder und Eindrücke aus Fenster-, Treppenhaus- und Büroreinigung.",
   path: "/referenzen",
+  noindex: true,
 });
 
 const layout = ["sm:col-span-7 aspect-[4/3]", "sm:col-span-5 aspect-[4/3] sm:aspect-auto", "sm:col-span-12 aspect-[4/3] sm:aspect-[21/9]"];
@@ -20,15 +20,11 @@ export default function ReferenzenPage() {
       <PageHero
         label="Referenzen"
         title="Objekte und Eindrücke."
-        lead="Einblicke in Fenster-, Treppenhaus- und Büroreinigung – aktuell mit freien Beispielfotos, bis eigene Objektaufnahmen vorliegen."
+        lead="Beispielbilder zu Fenster-, Treppenhaus- und Büroreinigung. Aufnahmen aus eigenen Objekten folgen."
       />
 
       <section className="pb-14 lg:pb-20">
         <div className="container-site">
-          <Placeholder className="mb-8 max-w-[40rem]">
-            Beispielbilder (Stock) zur Vorschau. Eigene Objektfotos ersetzen sie später. Keine Kundennamen ohne Freigabe.
-          </Placeholder>
-
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-12 sm:gap-5">
             {galleryPlaceholders.map((item, index) => (
               <figure

@@ -20,12 +20,12 @@ export function HomeAbout() {
 
           <div data-reveal>
             <h2 id="ueber-titel" className="h-section max-w-[20ch]">
-              Ihr zuverlässiger Partner für Sauberkeit und Werterhalt.
+              Ein Betrieb aus Großräschen, geführt vom Inhaber.
             </h2>
             <p className="mt-5 max-w-[34rem] text-muted">
-              Bei Kienle Gebäudereinigung kümmern wir uns täglich um saubere Büros, gepflegte Treppenhäuser und
-              streifenfreie Fenster. Mit einem erfahrenen Team, modernen Reinigungsmitteln und einem klaren Anspruch an
-              Qualität sorgen wir für Sauberkeit, die bleibt – gründlich, pünktlich und zuverlässig.
+              {site.owner} führt den Betrieb selbst und ist Ihr Ansprechpartner, von der ersten Anfrage bis zur laufenden
+              Reinigung. Wir reinigen Büros, Treppenhäuser und Fenster in {site.address.city} und rund 30 Kilometer im
+              Umkreis.
             </p>
 
             <dl className="mt-7 grid grid-cols-3 gap-4 border-t border-ink/10 pt-6">

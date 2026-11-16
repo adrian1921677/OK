@@ -17,11 +17,11 @@ export function HomeServices() {
       <div className="container-site">
         <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4" data-reveal>
           <h2 id="leistungen-titel" className="h-section max-w-[18ch]">
-            Wir reinigen mit System – gründlich, zuverlässig und flexibel.
+            Was wir für Sie reinigen
           </h2>
           <p className="max-w-[26rem] text-muted">
-            Ob Büro, Praxis oder Treppenhaus: Unsere Reinigung passt sich Ihrem Alltag an und überzeugt durch konstante
-            Qualität.
+            Für Hausverwaltungen, Wohnungsgesellschaften, Büros und Praxen. Umfang und Rhythmus halten wir im Angebot
+            fest.
           </p>
         </div>
 

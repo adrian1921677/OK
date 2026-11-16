@@ -1,7 +1,6 @@
 import { ContactDetails } from "@/components/contact-details";
 import { ContactForm } from "@/components/contact-form";
 import { PageHero } from "@/components/page-hero";
-import { Placeholder } from "@/components/placeholder";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
@@ -39,9 +38,6 @@ export default function KontaktPage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <Placeholder className="mt-7">
-                Telefonische Erreichbarkeit (Tage und Uhrzeiten) wird ergänzt, sobald bestätigt.
-              </Placeholder>
             </div>
           </div>
 
